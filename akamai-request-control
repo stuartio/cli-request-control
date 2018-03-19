@@ -390,9 +390,10 @@ def create_version(args):
             del policy_rules['revisionId']
             del policy_rules['rulesLocked']
             del policy_rules['version']
-            for mr in policy_rules['matchRules']:
-                del mr['location']
-                del mr['matchURL']
+            if policy_rules['matchRules']:
+                for mr in policy_rules['matchRules']:
+                    del mr['location']
+                    del mr['matchURL']
             # print json.dumps(policy_rules, indent=4)
 
 
