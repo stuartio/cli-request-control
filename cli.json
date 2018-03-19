@@ -1,0 +1,13 @@
+{
+  "requirements": {
+    "python": "2.6.0"
+  },
+  "commands": [
+    {
+      "name": "request-control",
+      "aliases": ["rc"],
+      "version": "0.0.1",
+      "description": "Access and control Request Control cloudlet"
+    }
+  ]
+}
