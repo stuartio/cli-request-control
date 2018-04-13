@@ -146,6 +146,14 @@ def cli():
           "action": "store_true"},{"name": "file", "help": "File path for input rules file"}],
         [{"name": "policy", "help": "Policy name"}])
 
+    actions["activate"] = create_sub_command(
+        subparsers, "activate", "Activate a specific policy version",
+        [{"name": "policy", "help": "Policy name"}],
+        [{"name": "network",
+          "help": "Network to be activated on (case-insensitive).",
+          "type": str.lower, "choices": {"staging", "production"}},
+         {"name": "version", "help": "Version number of the policy"}])
+
     args = parser.parse_args()
     if len(sys.argv) <= 1:
         parser.print_help()
@@ -429,6 +437,54 @@ def list(args=None):
         print json.dumps(policies_list, indent=4)
     return 0
 
+def activate(args):
+
+    policy = args.policy
+    version = args.version
+    network = args.network
+
+    if network == 'production':
+        network = 'prod'
+
+    # API config
+    config = init_config(args.edgerc, args.section)
+    cloudlet_object = Cloudlet(config)
+
+    # getting policy ID from the local store
+    policy_file = get_policy_file_path(policy)
+    if not os.path.isfile(policy_file):
+        root_logger.info('Local cache does not contain this policy. Please double check policy name or run "setup" first')
+        return 1
+
+    with open(policy_file) as fd:
+        policy_info = json.load(fd)
+    root_logger.info('Found policy details in the cache store: ' + policy_file)
+    policy_id = policy_info['policyId']
+
+    # Update the local copy to latest details
+    root_logger.info(
+        'Trying to activate policy ' +
+        policy +
+        ' version ' +
+        version +
+        ' to ' +
+        network +
+        ' network')
+
+    try:
+        response = cloudlet_object.activate_policy_version(policy_id, version, network)
+        # print json.dumps(response, indent=4)
+        response = response.pop()
+        root_logger.info('Success! The policy version number: ' + str(response['policyInfo']['version']) + ' is activated!')
+    except Exception as e:
+        # root_logger.info(
+        #     'Cannot activate the policy version, Reason: ' + response['detail'])
+        root_logger.debug('Detailed Json response is: ')
+        json.dumps(response, indent=4)
+        # print e
+        return 1
+
+    return 0
 
 def get_prog_name():
     prog = os.path.basename(sys.argv[0])

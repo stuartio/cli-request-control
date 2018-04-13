@@ -116,62 +116,30 @@ class Cloudlet(object):
 
     def update_policy_version(
             self,
-            session,
             policy_id,
             policy_details,
             version):
-        """
-        Function to update a policy version
-
-        Parameters
-        -----------
-        session : <string>
-            An EdgeGrid Auth akamai session object
-
-        Returns
-        -------
-        cloudlet_policy_update_response : cloudlet_policy_update_response
-            Json object details of updated cloudlet policy version
-        """
-        headers = {
-            "Content-Type": "application/json"
-        }
-        cloudlet_policy_update_url = 'https://' + self.access_hostname + '/cloudlets/api/v2/policies/' + \
-                                     str(policy_id) + '/versions/' + str(version) + '?omitRules=false'
+        
+        endpoint = '/cloudlets/api/v2/policies/' + str(policy_id) + '/versions/' + str(version) + '?omitRules=false'
+        # refactoring not finished
         cloudlet_policy_update_response = session.put(
             cloudlet_policy_update_url, data=policy_details, headers=headers)
         return cloudlet_policy_update_response
 
     def activate_policy_version(
             self,
-            session,
             policy_id,
             version,
             network='staging'):
-        """
-        Function to activate a policy version
-
-        Parameters
-        -----------
-        session : <string>
-            An EdgeGrid Auth akamai session object
-
-        Returns
-        -------
-        cloudlet_policy_activate_response : cloudlet_policy_activate_response
-            Json object details of activated cloudlet policy version
-        """
-        headers = {
-            "Content-Type": "application/json"
-        }
-        network_data = """{
+        
+        data = """{
             "network" : "%s"
         }""" % network
-        cloudlet_policy_activate_url = 'https://' + self.access_hostname + \
-            '/cloudlets/api/v2/policies/' + str(policy_id) + '/versions/' + str(version) + '/activations'
-        cloudlet_policy_activate_response = session.post(
-            cloudlet_policy_activate_url, data=network_data, headers=headers)
-        return cloudlet_policy_activate_response
+
+        endpoint = '/cloudlets/api/v2/policies/' + str(policy_id) + '/versions/' + str(version) + '/activations'
+        result = self.http_caller.postResult(endpoint, data, {})
+        return (result)
+        
 
     def delete_policy_version(self, session, policy_id, version):
         """
