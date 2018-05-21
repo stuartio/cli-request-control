@@ -123,6 +123,9 @@ class EdgeGridHttpCaller():
         # print (">>>\n" + json.dumps(endpoint_result.json(), indent=2) + "\n<<<\n")
         # if not status == 200:
         #     raise Exception('Error', endpoint_result)
+        if self.verbose: print (">>>\n" + json.dumps(endpoint_result.json(), indent=2) + "\n<<<\n")
+        if not status == 200:
+             raise Exception('Http status', status)
 
         # print "URL: " + endpoint_result.url
 

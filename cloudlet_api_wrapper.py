@@ -88,6 +88,19 @@ class Cloudlet(object):
         return (result)
 
 
+    def update_policy_version(
+            self,
+            policy_id,
+            policy_details,
+            version):
+        
+        endpoint = '/cloudlets/api/v2/policies/' + str(policy_id) + '/versions/' + str(version) + '?omitRules=false'
+        # refactoring not finished
+        cloudlet_policy_update_response = session.put(
+            cloudlet_policy_update_url, data=policy_details, headers=headers)
+        return cloudlet_policy_update_response
+
+
     def activate_policy_version(
             self,
             policy_id,
@@ -97,13 +110,14 @@ class Cloudlet(object):
         Function to activate a policy version
         """
 
-        policy_data = {
-            "network": network
-        }
+        data = """{
+            "network" : "%s"
+        }""" % network
 
         endpoint = '/cloudlets/api/v2/policies/' + str(policy_id) + '/versions/' + str(version) + '/activations'
-        result = self.http_caller.postResult(endpoint, policy_data, {})
-        return result
+        result = self.http_caller.postResult(endpoint, data, {})
+        return (result)
+        
 
     def add_rule(
             self,
