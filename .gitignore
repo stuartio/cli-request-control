@@ -1,3 +1,6 @@
 *.sublime-*
 cache
 logs
+*.pyc
+Dockerfile
+assets

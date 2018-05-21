@@ -119,13 +119,15 @@ class EdgeGridHttpCaller():
            return {}
         self.httpErrors(endpoint_result.status_code, path, endpoint_result.json())
         
-        if self.verbose: print (">>>\n" + json.dumps(endpoint_result.json(), indent=2) + "\n<<<\n")
+        # if self.verbose: 
+        # print (">>>\n" + json.dumps(endpoint_result.json(), indent=2) + "\n<<<\n")
         # if not status == 200:
-        #     raise Exception('Http status', status)
+        #     raise Exception('Error', endpoint_result)
 
-        print "URL: " + endpoint_result.url
+        # print "URL: " + endpoint_result.url
 
         return endpoint_result.json()
+
 
     def postFiles(self, endpoint, file):
         path = endpoint

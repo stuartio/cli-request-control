@@ -143,8 +143,25 @@ def cli():
         "Create a new policy version using a local file from the "
         "rules folder with name <policy>.json",
         [{"name": "force", "help": "Do not prompt for user confirmation",
-          "action": "store_true"},{"name": "file", "help": "File path for input rules file"}],
+          "action": "store_true"},
+          {"name": "file", "help": "File path for input rules file"}],
         [{"name": "policy", "help": "Policy name"}])
+
+    actions["activate"] = create_sub_command(
+        subparsers, "activate", "Activate a specific policy version",
+        [{"name": "policy", "help": "Policy name"}],
+        [{"name": "network",
+          "help": "Network to be activated on (case-insensitive).",
+          "type": str.lower, "choices": {"staging", "production"}},
+         {"name": "version", "help": "Version number of the policy"}])
+
+    actions["add-rule"] = create_sub_command(
+        subparsers, "add-rule", "Add a new rule to a specific version in the specified policy.",
+        [{"name": "rule", "help": "Rule name"},
+         {"name": "index", "help": "Index"}],
+        [{"name": "policy", "help": "Policy name"},
+         {"name": "file", "help": "Path to file containing rule details"},
+         {"name": "version", "help": "Version number of the policy"}])
 
     args = parser.parse_args()
     if len(sys.argv) <= 1:
@@ -334,7 +351,7 @@ def download(args):
     except Exception as e:
         root_logger.error('Failure in fetching policy rule details...')
         root_logger.debug('Detailed response is: ')
-        json.dumps(response, indent=4)
+        json.dumps(policy_details, indent=4)
         # print e
         return 1
 
@@ -430,6 +447,111 @@ def list(args=None):
     return 0
 
 
+def activate(args):
+
+    policy = args.policy
+    version = args.version
+    network = args.network
+
+    if network == 'production':
+        network = 'prod'
+
+    # API config
+    config = init_config(args.edgerc, args.section)
+    cloudlet_object = Cloudlet(config)
+
+    root_logger.info(
+        'Trying to activate policy ' +
+        policy +
+        ' version ' +
+        version +
+        ' to ' +
+        network +
+        ' network')
+    
+    # getting policy info from local cache
+    policy_file = get_policy_file_path(policy)
+    if not os.path.isfile(policy_file):
+        root_logger.info('Local cache does not contain this policy. Please double check policy name or run "setup" first')
+        return 1
+
+    with open(policy_file) as fd:
+        policy_info = json.load(fd)
+    root_logger.info('Found policy details in the cache store: ' + policy_file)
+    policy_id = policy_info['policyId']
+
+    try:
+        response = cloudlet_object.activate_policy_version(policy_id, version, network)
+        root_logger.info('Success! Activated policy version: ' + str(response['version']))
+        json.dumps(response, indent=4)
+    except Exception as e:
+        # root_logger.info(
+        #     'Cannot create new policy version, Reason: ' + response['detail'])
+        root_logger.info('Unable to activate, check the version number.')
+        root_logger.debug('Detailed Json response is: ')
+        json.dumps(response, indent=4)
+        # print e
+        return 1
+    return 0
+
+def add_rule(args):
+
+    policy = args.policy
+    rule_file = args.file
+    rule_name = args.rule
+    version = args.version
+    index = args.index
+
+    if not index > 0:
+        index = "1"
+
+    # API config
+    config = init_config(args.edgerc, args.section)
+    cloudlet_object = Cloudlet(config)
+
+    root_logger.info(
+        'Adding rule to policy: ' +
+        policy +
+        ' version ' +
+        version +
+        ' index ' +
+        index)
+    
+    # getting policy info from local cache
+    policy_file = get_policy_file_path(policy)
+    if not os.path.isfile(policy_file):
+        root_logger.info('Local cache does not contain this policy. Please double check policy name or run "setup" first')
+        return 1
+
+    with open(policy_file) as fd:
+        policy_info = json.load(fd)
+    root_logger.info('Found policy details in the cache store: ' + policy_file)
+    policy_id = policy_info['policyId']
+
+    # getting rule's details
+    if not os.path.isfile(rule_file):
+        root_logger.info('Rule file doesn\'t exist. Please double check rule file path')
+        return 1
+
+    with open(rule_file) as fd:
+        rule_data = json.load(fd)
+
+    if rule_name:
+        rule_data['name'] = rule_name
+
+    try:
+        response = cloudlet_object.add_rule(policy_id, version, index, json.dumps(rule_data))
+        root_logger.info('Success! Rule added')
+        # print response['name']
+        # print json.dumps(response, indent=4)
+    except Exception as e:
+        root_logger.info('Unable to add the rule.')
+        root_logger.debug('Detailed Json response is: ')
+        print json.dumps(response, indent=4)
+        # print e
+        return 1
+    return 0
+    
 def get_prog_name():
     prog = os.path.basename(sys.argv[0])
     if os.getenv("AKAMAI_CLI"):
