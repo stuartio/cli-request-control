@@ -1,0 +1,8 @@
+*.sublime-*
+cache
+logs
+*.pyc
+Dockerfile
+assets
+.vscode
+.edgerc
