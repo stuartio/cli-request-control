@@ -1,0 +1,63 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "rc_humana_demo", 
+    "deleted": false, 
+    "lastModifiedDate": 1473422875275, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 18944, 
+    "lastModifiedBy": "gramesh", 
+    "serviceVersion": null, 
+    "createDate": 1473422875275, 
+    "location": "/cloudlets/api/v2/policies/18944", 
+    "createdBy": "gramesh", 
+    "activations": [
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "rc_humana_demo", 
+                "activationDate": 1473432003000, 
+                "version": 1, 
+                "activatedBy": "gramesh", 
+                "policyId": 18944
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "active", 
+                "name": "prcloudlet-demo.akamai.com", 
+                "id": 37593161, 
+                "activationDate": 1473448386000, 
+                "version": 9, 
+                "activatedBy": "gramesh", 
+                "groupId": 19293
+            }
+        }, 
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "rc_humana_demo", 
+                "activationDate": 1473432001000, 
+                "version": 1, 
+                "activatedBy": "gramesh", 
+                "policyId": 18944
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "deactivated", 
+                "name": "1", 
+                "id": 1526633, 
+                "activationDate": 1405121338000, 
+                "version": 4, 
+                "activatedBy": "vdatta", 
+                "groupId": 42638
+            }
+        }
+    ], 
+    "groupId": 19297, 
+    "name": "rc_humana_demo"
+}

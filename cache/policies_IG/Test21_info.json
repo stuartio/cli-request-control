@@ -1,0 +1,18 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "test romain", 
+    "deleted": false, 
+    "lastModifiedDate": 1458671207467, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 11345, 
+    "lastModifiedBy": "rbaraut", 
+    "serviceVersion": null, 
+    "createDate": 1458671207467, 
+    "location": "/cloudlets/api/v2/policies/11345", 
+    "createdBy": "rbaraut", 
+    "activations": [], 
+    "groupId": 74053, 
+    "name": "Test21"
+}

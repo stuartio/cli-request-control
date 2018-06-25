@@ -1,0 +1,18 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "jd_0502", 
+    "deleted": false, 
+    "lastModifiedDate": 1517854943116, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 43847, 
+    "lastModifiedBy": "jdean", 
+    "serviceVersion": null, 
+    "createDate": 1517854943116, 
+    "location": "/cloudlets/api/v2/policies/43847", 
+    "createdBy": "jdean", 
+    "activations": [], 
+    "groupId": 78721, 
+    "name": "jd_0502"
+}

@@ -1,0 +1,63 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "testing policy", 
+    "deleted": false, 
+    "lastModifiedDate": 1450269403360, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 7065, 
+    "lastModifiedBy": "dpietras", 
+    "serviceVersion": null, 
+    "createDate": 1450269403360, 
+    "location": "/cloudlets/api/v2/policies/7065", 
+    "createdBy": "dpietras", 
+    "activations": [
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "admin_restricted", 
+                "activationDate": 1485788427000, 
+                "version": 2, 
+                "activatedBy": "dpietras", 
+                "policyId": 7065
+            }, 
+            "network": "prod", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "deactivated", 
+                "name": "linuxprogrammingblog.com", 
+                "id": 21266359, 
+                "activationDate": 1507273768000, 
+                "version": 66, 
+                "activatedBy": "dpietras", 
+                "groupId": 70216
+            }
+        }, 
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "admin_restricted", 
+                "activationDate": 1450271296000, 
+                "version": 2, 
+                "activatedBy": "dpietras", 
+                "policyId": 7065
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "deactivated", 
+                "name": "linuxprogrammingblog.com", 
+                "id": 21266359, 
+                "activationDate": 1513604305000, 
+                "version": 78, 
+                "activatedBy": "dpietras", 
+                "groupId": 70216
+            }
+        }
+    ], 
+    "groupId": 70216, 
+    "name": "admin_restricted"
+}

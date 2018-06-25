@@ -1,0 +1,18 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "s", 
+    "deleted": false, 
+    "lastModifiedDate": 1500658558372, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 32426, 
+    "lastModifiedBy": "rmongeag", 
+    "serviceVersion": null, 
+    "createDate": 1500658558372, 
+    "location": "/cloudlets/api/v2/policies/32426", 
+    "createdBy": "rmongeag", 
+    "activations": [], 
+    "groupId": 74053, 
+    "name": "test1231111"
+}

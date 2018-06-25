@@ -1,9 +1,0 @@
-*.sublime-*
-cache
-logs
-*.pyc
-<<<<<<< HEAD
-Dockerfile
-assets
-=======
->>>>>>> 6e4d1f3081415856df12d3581e428bc625cab6fa

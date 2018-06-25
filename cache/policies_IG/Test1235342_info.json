@@ -1,0 +1,18 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "Tesst", 
+    "deleted": false, 
+    "lastModifiedDate": 1469819958105, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 17534, 
+    "lastModifiedBy": "ctuppad", 
+    "serviceVersion": null, 
+    "createDate": 1469819958105, 
+    "location": "/cloudlets/api/v2/policies/17534", 
+    "createdBy": "ctuppad", 
+    "activations": [], 
+    "groupId": 65552, 
+    "name": "Test1235342"
+}

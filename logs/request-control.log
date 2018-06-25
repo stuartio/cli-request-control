@@ -1,0 +1,5 @@
+2018-06-25 17:39:15,652 [MainThread  ] [INFO ]  Found cache. Proceeding with cached data.
+2018-06-25 17:39:15,652 [MainThread  ] [INFO ]  Run "setup" command if you want to refresh the data.
+2018-06-25 17:39:15,653 [MainThread  ] [INFO ]  Modify rule within policy: dkuciel_req_control version 13 rule_id ecb2dbeca7727733
+2018-06-25 17:39:15,654 [MainThread  ] [INFO ]  Found policy details in the cache store: ./cache/policies_IG/dkuciel_req_control_info.json
+2018-06-25 17:39:20,397 [MainThread  ] [INFO ]  Success! Rule modified

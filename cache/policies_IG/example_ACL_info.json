@@ -1,0 +1,18 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "example_ACL", 
+    "deleted": false, 
+    "lastModifiedDate": 1495034624334, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 28822, 
+    "lastModifiedBy": "vravuri", 
+    "serviceVersion": null, 
+    "createDate": 1495034624334, 
+    "location": "/cloudlets/api/v2/policies/28822", 
+    "createdBy": "vravuri", 
+    "activations": [], 
+    "groupId": 19293, 
+    "name": "example_ACL"
+}

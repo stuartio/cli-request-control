@@ -1,0 +1,41 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "Request Control test rsalmon", 
+    "deleted": false, 
+    "lastModifiedDate": 1458749804574, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 11419, 
+    "lastModifiedBy": "rsalmon", 
+    "serviceVersion": null, 
+    "createDate": 1458749804574, 
+    "location": "/cloudlets/api/v2/policies/11419", 
+    "createdBy": "rsalmon", 
+    "activations": [
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "RequestControl_rsalmon", 
+                "activationDate": 1458749924000, 
+                "version": 1, 
+                "activatedBy": "rsalmon", 
+                "policyId": 11419
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "deactivated", 
+                "name": "beta.juliusk9.fr", 
+                "id": 28354379, 
+                "activationDate": 1463487336000, 
+                "version": 5, 
+                "activatedBy": "rsalmon", 
+                "groupId": 78379
+            }
+        }
+    ], 
+    "groupId": 78379, 
+    "name": "RequestControl_rsalmon"
+}

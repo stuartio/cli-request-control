@@ -1,0 +1,38 @@
+{
+    "rulesLocked": false, 
+    "description": "init (Based on v1)", 
+    "deleted": false, 
+    "lastModifiedDate": 1517475211607, 
+    "revisionId": 1268188, 
+    "lastModifiedBy": "dkuciel", 
+    "version": 2, 
+    "location": "/cloudlets/api/v2/policies/42195/versions/2", 
+    "createdBy": "dkuciel", 
+    "activations": [], 
+    "matchRuleFormat": "1.0", 
+    "createDate": 1517475211607, 
+    "matchRules": [
+        {
+            "end": 0, 
+            "name": "GEO PL", 
+            "matches": [
+                {
+                    "matchValue": "PL", 
+                    "checkIPs": "CONNECTING_IP XFF_HEADERS", 
+                    "caseSensitive": false, 
+                    "negate": true, 
+                    "matchType": "countrycode", 
+                    "matchOperator": "equals"
+                }
+            ], 
+            "start": 0, 
+            "location": "/cloudlets/api/v2/policies/42195/versions/2/rules/2b8dd7c701c97349", 
+            "allowDeny": "deny", 
+            "akaRuleId": "2b8dd7c701c97349", 
+            "type": "igMatchRule", 
+            "id": 0, 
+            "matchURL": null
+        }
+    ], 
+    "policyId": 42195
+}

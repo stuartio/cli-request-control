@@ -1,0 +1,18 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "test", 
+    "deleted": false, 
+    "lastModifiedDate": 1506698213146, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 37435, 
+    "lastModifiedBy": "nvenkate", 
+    "serviceVersion": null, 
+    "createDate": 1506698213146, 
+    "location": "/cloudlets/api/v2/policies/37435", 
+    "createdBy": "nvenkate", 
+    "activations": [], 
+    "groupId": 33317, 
+    "name": "Nakul_RC"
+}

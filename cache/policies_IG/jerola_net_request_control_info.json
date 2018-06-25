@@ -1,0 +1,63 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "jerola_net_request_control", 
+    "deleted": false, 
+    "lastModifiedDate": 1460546477862, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 12868, 
+    "lastModifiedBy": "jzorko", 
+    "serviceVersion": null, 
+    "createDate": 1460546477862, 
+    "location": "/cloudlets/api/v2/policies/12868", 
+    "createdBy": "jzorko", 
+    "activations": [
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "jerola_net_request_control", 
+                "activationDate": 1478982596000, 
+                "version": 4, 
+                "activatedBy": "jzorko", 
+                "policyId": 12868
+            }, 
+            "network": "prod", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "active", 
+                "name": "jerola.net", 
+                "id": 26737203, 
+                "activationDate": 1513247604000, 
+                "version": 107, 
+                "activatedBy": "jzorko", 
+                "groupId": 64931
+            }
+        }, 
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "jerola_net_request_control", 
+                "activationDate": 1478982574000, 
+                "version": 4, 
+                "activatedBy": "jzorko", 
+                "policyId": 12868
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "active", 
+                "name": "jerola.net", 
+                "id": 26737203, 
+                "activationDate": 1513179215000, 
+                "version": 106, 
+                "activatedBy": "jzorko", 
+                "groupId": 64931
+            }
+        }
+    ], 
+    "groupId": 64931, 
+    "name": "jerola_net_request_control"
+}

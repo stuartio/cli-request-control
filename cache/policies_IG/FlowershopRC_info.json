@@ -1,0 +1,41 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "test", 
+    "deleted": false, 
+    "lastModifiedDate": 1485458414946, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 24254, 
+    "lastModifiedBy": "nvenkate", 
+    "serviceVersion": null, 
+    "createDate": 1485458414946, 
+    "location": "/cloudlets/api/v2/policies/24254", 
+    "createdBy": "nvenkate", 
+    "activations": [
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "FlowershopRC", 
+                "activationDate": 1485539840000, 
+                "version": 10, 
+                "activatedBy": "nvenkate", 
+                "policyId": 24254
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "deactivated", 
+                "name": "nakul.flowers.com", 
+                "id": 27118121, 
+                "activationDate": 1516747615000, 
+                "version": 171, 
+                "activatedBy": "nvenkate", 
+                "groupId": 19293
+            }
+        }
+    ], 
+    "groupId": 19293, 
+    "name": "FlowershopRC"
+}

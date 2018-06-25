@@ -1,0 +1,85 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "req control cloudlet  policy for akau", 
+    "deleted": false, 
+    "lastModifiedDate": 1519552982479, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 44635, 
+    "lastModifiedBy": "amoza", 
+    "serviceVersion": null, 
+    "createDate": 1519552982479, 
+    "location": "/cloudlets/api/v2/policies/44635", 
+    "createdBy": "amoza", 
+    "activations": [
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "amoza_AKAUtest", 
+                "activationDate": 1519553291000, 
+                "version": 1, 
+                "activatedBy": "amoza", 
+                "policyId": 44635
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "active", 
+                "name": "test_amoza", 
+                "id": 41390707, 
+                "activationDate": 1519553764000, 
+                "version": 5, 
+                "activatedBy": "amoza", 
+                "groupId": 19293
+            }
+        }, 
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "amoza_AKAUtest", 
+                "activationDate": 1519553291000, 
+                "version": 1, 
+                "activatedBy": "amoza", 
+                "policyId": 44635
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "deactivated", 
+                "name": "test.amoza_Ion", 
+                "id": 45257416, 
+                "activationDate": 1520173316000, 
+                "version": 7, 
+                "activatedBy": "amoza", 
+                "groupId": 94301
+            }
+        }, 
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "amoza_AKAUtest", 
+                "activationDate": 1519553291000, 
+                "version": 1, 
+                "activatedBy": "amoza", 
+                "policyId": 44635
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "inactive", 
+                "name": "amozatestbeta", 
+                "id": 73397572, 
+                "activationDate": 0, 
+                "version": 0, 
+                "activatedBy": null, 
+                "groupId": 19293
+            }
+        }
+    ], 
+    "groupId": 19293, 
+    "name": "amoza_AKAUtest"
+}

@@ -1,0 +1,41 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "odutille_ipgeo_test2", 
+    "deleted": false, 
+    "lastModifiedDate": 1447077609484, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 6255, 
+    "lastModifiedBy": "odutille", 
+    "serviceVersion": null, 
+    "createDate": 1447077609484, 
+    "location": "/cloudlets/api/v2/policies/6255", 
+    "createdBy": "odutille", 
+    "activations": [
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "odutille_ipgeo_test2", 
+                "activationDate": 1447083637000, 
+                "version": 4, 
+                "activatedBy": "odutille", 
+                "policyId": 6255
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "active", 
+                "name": "odutille2.com", 
+                "id": 20836155, 
+                "activationDate": 1470720240000, 
+                "version": 4, 
+                "activatedBy": "rogopala", 
+                "groupId": 46535
+            }
+        }
+    ], 
+    "groupId": 46535, 
+    "name": "odutille_ipgeo_test2"
+}

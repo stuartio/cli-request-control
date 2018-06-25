@@ -1,0 +1,18 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "Policy to test Request Control using IP match", 
+    "deleted": false, 
+    "lastModifiedDate": 1491594990055, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 27206, 
+    "lastModifiedBy": "mthyagar", 
+    "serviceVersion": null, 
+    "createDate": 1491594990055, 
+    "location": "/cloudlets/api/v2/policies/27206", 
+    "createdBy": "mthyagar", 
+    "activations": [], 
+    "groupId": 74053, 
+    "name": "Madan_Test_Request_control"
+}

@@ -1,0 +1,63 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "ITV_test_hubplus", 
+    "deleted": false, 
+    "lastModifiedDate": 1518520853536, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 44162, 
+    "lastModifiedBy": "jdean", 
+    "serviceVersion": null, 
+    "createDate": 1518520853536, 
+    "location": "/cloudlets/api/v2/policies/44162", 
+    "createdBy": "jdean", 
+    "activations": [
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "ITV_test_hubplus", 
+                "activationDate": 1519900043000, 
+                "version": 3, 
+                "activatedBy": "jdean", 
+                "policyId": 44162
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "active", 
+                "name": "jdean.iontesting.com", 
+                "id": 27069800, 
+                "activationDate": 1519900739000, 
+                "version": 60, 
+                "activatedBy": "jdean", 
+                "groupId": 78721
+            }
+        }, 
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "ITV_test_hubplus", 
+                "activationDate": 1519900043000, 
+                "version": 3, 
+                "activatedBy": "jdean", 
+                "policyId": 44162
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "deactivated", 
+                "name": "itv-token-test", 
+                "id": 83004685, 
+                "activationDate": 1518531196000, 
+                "version": 1, 
+                "activatedBy": "jdean", 
+                "groupId": 78721
+            }
+        }
+    ], 
+    "groupId": 78721, 
+    "name": "ITV_test_hubplus"
+}

@@ -1,0 +1,41 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "testng", 
+    "deleted": false, 
+    "lastModifiedDate": 1493314535483, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 28015, 
+    "lastModifiedBy": "cmalladi", 
+    "serviceVersion": null, 
+    "createDate": 1493314535483, 
+    "location": "/cloudlets/api/v2/policies/28015", 
+    "createdBy": "cmalladi", 
+    "activations": [
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "New_Policy", 
+                "activationDate": 1493316320000, 
+                "version": 1, 
+                "activatedBy": "cmalladi", 
+                "policyId": 28015
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "deactivated", 
+                "name": "testing.cmalladi.com", 
+                "id": 1706171, 
+                "activationDate": 1519914135000, 
+                "version": 54, 
+                "activatedBy": "cmalladi", 
+                "groupId": 42638
+            }
+        }
+    ], 
+    "groupId": 74053, 
+    "name": "New_Policy"
+}

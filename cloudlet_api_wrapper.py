@@ -129,3 +129,15 @@ class Cloudlet(object):
         endpoint = '/cloudlets/api/v2/policies/' + str(policy_id) + '/versions/'+ str(version) +'/rules'
         result = self.http_caller.postResult(endpoint, rule_data, {'index': index})
         return (result)
+
+    def modify_rule(
+            self,
+            policy_id,
+            version,
+            rule_id,
+            # index = None,
+            rule_data = {}):
+        
+        endpoint = '/cloudlets/api/v2/policies/' + str(policy_id) + '/versions/'+ str(version) +'/rules/' + str(rule_id)
+        result = self.http_caller.putResult(endpoint, rule_data)
+        return (result)

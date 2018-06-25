@@ -1,0 +1,41 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "none", 
+    "deleted": false, 
+    "lastModifiedDate": 1461288938737, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 13566, 
+    "lastModifiedBy": "rabdelaz", 
+    "serviceVersion": null, 
+    "createDate": 1461288938737, 
+    "location": "/cloudlets/api/v2/policies/13566", 
+    "createdBy": "rabdelaz", 
+    "activations": [
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "ramy", 
+                "activationDate": 1461289491000, 
+                "version": 2, 
+                "activatedBy": "rabdelaz", 
+                "policyId": 13566
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "deactivated", 
+                "name": "ramy-testing", 
+                "id": 12069087, 
+                "activationDate": 1506439288000, 
+                "version": 23, 
+                "activatedBy": "rabdelaz", 
+                "groupId": 52308
+            }
+        }
+    ], 
+    "groupId": 52308, 
+    "name": "ramy"
+}

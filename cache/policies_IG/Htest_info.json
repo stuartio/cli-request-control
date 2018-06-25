@@ -1,0 +1,18 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "country level", 
+    "deleted": false, 
+    "lastModifiedDate": 1470089535854, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 17567, 
+    "lastModifiedBy": "hmedikon", 
+    "serviceVersion": null, 
+    "createDate": 1470089535854, 
+    "location": "/cloudlets/api/v2/policies/17567", 
+    "createdBy": "hmedikon", 
+    "activations": [], 
+    "groupId": 19293, 
+    "name": "Htest"
+}

@@ -1,0 +1,41 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "Test", 
+    "deleted": false, 
+    "lastModifiedDate": 1501189920714, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 32884, 
+    "lastModifiedBy": "skesapra", 
+    "serviceVersion": null, 
+    "createDate": 1501189920714, 
+    "location": "/cloudlets/api/v2/policies/32884", 
+    "createdBy": "skesapra", 
+    "activations": [
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "skesapra_rc", 
+                "activationDate": 1502227019000, 
+                "version": 5, 
+                "activatedBy": "skesapra", 
+                "policyId": 32884
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "deactivated", 
+                "name": "skesapra-test.edgesuite.net", 
+                "id": 21761036, 
+                "activationDate": 1519689454000, 
+                "version": 63, 
+                "activatedBy": "skesapra", 
+                "groupId": 70942
+            }
+        }
+    ], 
+    "groupId": 65552, 
+    "name": "skesapra_rc"
+}

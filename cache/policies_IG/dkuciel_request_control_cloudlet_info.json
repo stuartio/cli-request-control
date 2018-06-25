@@ -1,0 +1,63 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "test setup", 
+    "deleted": false, 
+    "lastModifiedDate": 1516625966841, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 43095, 
+    "lastModifiedBy": "dkuciel", 
+    "serviceVersion": null, 
+    "createDate": 1516625966841, 
+    "location": "/cloudlets/api/v2/policies/43095", 
+    "createdBy": "dkuciel", 
+    "activations": [
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "dkuciel_request_control_cloudlet", 
+                "activationDate": 1516785192000, 
+                "version": 1, 
+                "activatedBy": "hducexkfrnw2l4ok", 
+                "policyId": 43095
+            }, 
+            "network": "prod", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "active", 
+                "name": "dkuciel-amd.akamaized.net", 
+                "id": 78097714, 
+                "activationDate": 1516723002000, 
+                "version": 18, 
+                "activatedBy": "dkuciel", 
+                "groupId": 65631
+            }
+        }, 
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "dkuciel_request_control_cloudlet", 
+                "activationDate": 1516631269000, 
+                "version": 1, 
+                "activatedBy": "hducexkfrnw2l4ok", 
+                "policyId": 43095
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "active", 
+                "name": "dkuciel-amd.akamaized.net", 
+                "id": 78097714, 
+                "activationDate": 1516629302000, 
+                "version": 11, 
+                "activatedBy": "dkuciel", 
+                "groupId": 65631
+            }
+        }
+    ], 
+    "groupId": 19293, 
+    "name": "dkuciel_request_control_cloudlet"
+}

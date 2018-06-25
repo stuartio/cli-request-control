@@ -1,0 +1,18 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "request control cloudlet", 
+    "deleted": false, 
+    "lastModifiedDate": 1457635490579, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 10328, 
+    "lastModifiedBy": "mawise", 
+    "serviceVersion": null, 
+    "createDate": 1457635490579, 
+    "location": "/cloudlets/api/v2/policies/10328", 
+    "createdBy": "mawise", 
+    "activations": [], 
+    "groupId": 76031, 
+    "name": "mawise_req_cont"
+}

@@ -1,0 +1,18 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "-", 
+    "deleted": false, 
+    "lastModifiedDate": 1473171476706, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 18761, 
+    "lastModifiedBy": "pmaugeri", 
+    "serviceVersion": null, 
+    "createDate": 1473171476706, 
+    "location": "/cloudlets/api/v2/policies/18761", 
+    "createdBy": "pmaugeri", 
+    "activations": [], 
+    "groupId": 84226, 
+    "name": "pmaugeri_request_control_policy"
+}

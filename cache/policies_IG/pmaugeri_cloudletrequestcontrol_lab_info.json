@@ -1,0 +1,41 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "test", 
+    "deleted": false, 
+    "lastModifiedDate": 1485878659457, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 24763, 
+    "lastModifiedBy": "pmaugeri", 
+    "serviceVersion": null, 
+    "createDate": 1485878659457, 
+    "location": "/cloudlets/api/v2/policies/24763", 
+    "createdBy": "pmaugeri", 
+    "activations": [
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "pmaugeri_cloudletrequestcontrol_lab", 
+                "activationDate": 1490132316000, 
+                "version": 6, 
+                "activatedBy": "pmaugeri", 
+                "policyId": 24763
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "active", 
+                "name": "pmaugeri_cloudletrequestcontrol_lab", 
+                "id": 46664055, 
+                "activationDate": 1485879008000, 
+                "version": 1, 
+                "activatedBy": "pmaugeri", 
+                "groupId": 50489
+            }
+        }
+    ], 
+    "groupId": 50489, 
+    "name": "pmaugeri_cloudletrequestcontrol_lab"
+}

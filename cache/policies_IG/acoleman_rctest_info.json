@@ -1,0 +1,18 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "Request Control Test policy", 
+    "deleted": false, 
+    "lastModifiedDate": 1481109602682, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 22436, 
+    "lastModifiedBy": "acoleman", 
+    "serviceVersion": null, 
+    "createDate": 1481109602682, 
+    "location": "/cloudlets/api/v2/policies/22436", 
+    "createdBy": "acoleman", 
+    "activations": [], 
+    "groupId": 19293, 
+    "name": "acoleman_rctest"
+}

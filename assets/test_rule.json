@@ -1,0 +1,17 @@
+{
+        "allowDeny": "deny",
+        "start": 0, 
+        "end": 0, 
+        "id": 0, 
+        "matches": [
+            {
+                "caseSensitive": false, 
+                "matchOperator": "equals",
+                "matchType": "extension", 
+                "matchValue": "jpg", 
+                "negate": true
+            }
+        ], 
+        "name": "Rule modified by API!", 
+        "type": "igMatchRule"
+    }

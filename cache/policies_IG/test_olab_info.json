@@ -1,0 +1,18 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "test", 
+    "deleted": false, 
+    "lastModifiedDate": 1463650743892, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 14663, 
+    "lastModifiedBy": "olabrous", 
+    "serviceVersion": null, 
+    "createDate": 1463650743892, 
+    "location": "/cloudlets/api/v2/policies/14663", 
+    "createdBy": "olabrous", 
+    "activations": [], 
+    "groupId": 74053, 
+    "name": "test_olab"
+}

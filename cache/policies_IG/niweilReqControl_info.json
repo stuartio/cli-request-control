@@ -1,0 +1,18 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "niweilReqControl", 
+    "deleted": false, 
+    "lastModifiedDate": 1458683790205, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 11352, 
+    "lastModifiedBy": "niweil", 
+    "serviceVersion": null, 
+    "createDate": 1458683790205, 
+    "location": "/cloudlets/api/v2/policies/11352", 
+    "createdBy": "niweil", 
+    "activations": [], 
+    "groupId": 74053, 
+    "name": "niweilReqControl"
+}

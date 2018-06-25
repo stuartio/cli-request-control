@@ -1,0 +1,18 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "This is the IP cloudlet for jcheshire.", 
+    "deleted": false, 
+    "lastModifiedDate": 1444240539331, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 5584, 
+    "lastModifiedBy": "jcheshir", 
+    "serviceVersion": null, 
+    "createDate": 1444240539331, 
+    "location": "/cloudlets/api/v2/policies/5584", 
+    "createdBy": "jcheshir", 
+    "activations": [], 
+    "groupId": 19293, 
+    "name": "jnc_stream_geo"
+}

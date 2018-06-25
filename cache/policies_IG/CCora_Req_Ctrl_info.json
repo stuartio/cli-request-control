@@ -1,0 +1,18 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "Referrer blocks", 
+    "deleted": false, 
+    "lastModifiedDate": 1476123046761, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 20164, 
+    "lastModifiedBy": "ccora", 
+    "serviceVersion": null, 
+    "createDate": 1476123046761, 
+    "location": "/cloudlets/api/v2/policies/20164", 
+    "createdBy": "ccora", 
+    "activations": [], 
+    "groupId": 74053, 
+    "name": "CCora_Req_Ctrl"
+}

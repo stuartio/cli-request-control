@@ -1,0 +1,41 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "Test Request Control cloudlet", 
+    "deleted": false, 
+    "lastModifiedDate": 1492089591770, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 27374, 
+    "lastModifiedBy": "dkuciel", 
+    "serviceVersion": null, 
+    "createDate": 1492085617024, 
+    "location": "/cloudlets/api/v2/policies/27374", 
+    "createdBy": "dkuciel", 
+    "activations": [
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "dkuciel_test_request_control", 
+                "activationDate": 1492085933000, 
+                "version": 1, 
+                "activatedBy": "dkuciel", 
+                "policyId": 27374
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "deactivated", 
+                "name": "akamai.webarch.pl", 
+                "id": 16978082, 
+                "activationDate": 1513790789000, 
+                "version": 84, 
+                "activatedBy": "dkuciel", 
+                "groupId": 65631
+            }
+        }
+    ], 
+    "groupId": 65631, 
+    "name": "dkuciel_test_request_control"
+}

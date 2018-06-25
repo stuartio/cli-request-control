@@ -1,0 +1,63 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "applied to config \"igonzale\"\nPLEASE DO NOT TOUCH THIS POLICY", 
+    "deleted": false, 
+    "lastModifiedDate": 1469772346272, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 17522, 
+    "lastModifiedBy": "igonzale", 
+    "serviceVersion": null, 
+    "createDate": 1469772346272, 
+    "location": "/cloudlets/api/v2/policies/17522", 
+    "createdBy": "igonzale", 
+    "activations": [
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "igonzale_rq", 
+                "activationDate": 1469772702000, 
+                "version": 2, 
+                "activatedBy": "igonzale", 
+                "policyId": 17522
+            }, 
+            "network": "staging", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "active", 
+                "name": "igonzale", 
+                "id": 5839674, 
+                "activationDate": 1469773318000, 
+                "version": 29, 
+                "activatedBy": "igonzale", 
+                "groupId": 87916
+            }
+        }, 
+        {
+            "serviceVersion": null, 
+            "policyInfo": {
+                "status": "active", 
+                "name": "igonzale_rq", 
+                "activationDate": 1469772694000, 
+                "version": 2, 
+                "activatedBy": "igonzale", 
+                "policyId": 17522
+            }, 
+            "network": "prod", 
+            "apiVersion": "2.0", 
+            "propertyInfo": {
+                "status": "inactive", 
+                "name": "igonzale", 
+                "id": 5839674, 
+                "activationDate": 0, 
+                "version": 0, 
+                "activatedBy": null, 
+                "groupId": 87916
+            }
+        }
+    ], 
+    "groupId": 19293, 
+    "name": "igonzale_rq"
+}

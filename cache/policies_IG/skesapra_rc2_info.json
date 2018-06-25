@@ -1,0 +1,18 @@
+{
+    "cloudletCode": "IG", 
+    "cloudletId": 4, 
+    "description": "RC test config", 
+    "deleted": false, 
+    "lastModifiedDate": 1508188365311, 
+    "propertyName": null, 
+    "apiVersion": "2.0", 
+    "policyId": 38230, 
+    "lastModifiedBy": "skesapra", 
+    "serviceVersion": null, 
+    "createDate": 1508188365311, 
+    "location": "/cloudlets/api/v2/policies/38230", 
+    "createdBy": "skesapra", 
+    "activations": [], 
+    "groupId": 70942, 
+    "name": "skesapra_rc2"
+}
