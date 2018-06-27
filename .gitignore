@@ -3,6 +3,7 @@ cache
 logs
 *.pyc
 Dockerfile
-assets
+assets/akamai
+assets/test*
 .vscode
 .edgerc
