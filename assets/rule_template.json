@@ -1,0 +1,18 @@
+{
+    "name": "IP enabled",
+    "allowDeny": "allow",
+    "start": 0,
+    "end": 0, 
+    "id": 0, 
+    "matches": [
+        {
+            "matchValue": "1.2.3.4 5.6.7.8", 
+            "checkIPs": "CONNECTING_IP XFF_HEADERS", 
+            "caseSensitive": false, 
+            "negate": false, 
+            "matchType": "clientip", 
+            "matchOperator": "equals"
+        }
+    ], 
+    "type": "igMatchRule"
+}

@@ -154,6 +154,9 @@ class EdgeGridHttpCaller():
         if status == 204:
             return {}
         if self.verbose: print (">>>\n" + json.dumps(endpoint_result.json(), indent=2) + "\n<<<\n")
+
+        # print "URL: " + endpoint_result.url
+        
         return endpoint_result.json()
     
     def deleteResult(self, endpoint):

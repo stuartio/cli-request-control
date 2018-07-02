@@ -139,5 +139,5 @@ class Cloudlet(object):
             rule_data = {}):
         
         endpoint = '/cloudlets/api/v2/policies/' + str(policy_id) + '/versions/'+ str(version) +'/rules/' + str(rule_id)
-        result = self.http_caller.putResult(endpoint, rule_data)
+        result = self.http_caller.putResult(endpoint, rule_data, {})
         return (result)

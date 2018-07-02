@@ -162,7 +162,9 @@ def cli():
             {"name": "index", "help": "Index"},
             {"name": "file", "help": "Path to file containing rule details"},
             {"name": "allow_ip", "help": "Allow specified IP"},
-            {"name": "deny_ip", "help": "Deny specified IP"}
+            {"name": "deny_ip", "help": "Deny specified IP"},
+            {"name": "allow_country", "help": "Allow specified country code"},
+            {"name": "deny_country", "help": "Deny specified country code"}
         ],
         [
             {"name": "policy", "help": "Policy name"},
@@ -171,12 +173,22 @@ def cli():
 
     actions["modify-rule"] = create_sub_command(
         subparsers, "modify-rule", "Updates attributes of an existing rule within a policy version.",
-        [],
-        [{"name": "policy", "help": "Policy name"},
-         {"name": "version", "help": "Version number of the policy"},
-         {"name": "rule_id", "help": "Rule Id"},
-         {"name": "file", "help": "Path to file containing rule details"},
-         ])
+        [
+            {"name": "rule", "help": "Rule name"},
+            # {"name": "index", "help": "Index"},
+            {"name": "file", "help": "Path to file containing rule details"},
+            {"name": "allow_ip", "help": "Allow specified IP"},
+            {"name": "deny_ip", "help": "Deny specified IP"},
+            {"name": "allow_country", "help": "Allow specified country code"},
+            {"name": "deny_country", "help": "Deny specified country code"},
+            {"name": "disable", "help": "Disable rule", "action": "store_true"},
+            {"name": "enable", "help": "Enable rule", "action": "store_true"},
+        ],
+        [
+            {"name": "policy", "help": "Policy name"},
+            {"name": "version", "help": "Version number of the policy"},
+            {"name": "rule_id", "help": "Rule Id"}
+        ])
 
     args = parser.parse_args()
     if len(sys.argv) <= 1:
@@ -513,7 +525,7 @@ def activate(args):
 
 def add_rule(args):
 
-    rule_template_file = './assets/rule_ip_template.json'
+    rule_template_file = './assets/rule_template.json'
 
     policy = args.policy
     rule_file = args.file
@@ -522,6 +534,8 @@ def add_rule(args):
     index = args.index
     ip_allowed = args.allow_ip
     ip_denied = args.deny_ip
+    country_allowed = args.allow_country
+    country_denied = args.deny_country
 
     # @todo check if file || ip_allowed || ip_denied but not both!!!
 
@@ -572,8 +586,18 @@ def add_rule(args):
     if ip_denied:
         rule_data['allowDeny'] = "deny"
         rule_data['matches'][0]['matchValue'] = ip_denied
-        
-        
+    
+    if country_allowed or country_denied:
+        # getting rule's template
+        with open(rule_template_file) as fd:
+            rule_data = json.load(fd)
+        rule_data['matches'][0]["matchType"] = "countrycode"
+    if country_allowed:
+        rule_data['allowDeny'] = "allow"
+        rule_data['matches'][0]['matchValue'] = country_allowed
+    if country_denied:
+        rule_data['allowDeny'] = "deny"
+        rule_data['matches'][0]['matchValue'] = country_denied
 
     if rule_name:
         rule_data['name'] = rule_name
@@ -590,13 +614,26 @@ def add_rule(args):
         # print e
         return 1
     return 0
-    
+
+
 def modify_rule(args):
 
     policy = args.policy
     version = args.version
     rule_id = args.rule_id
     rule_file = args.file
+    rule_name = args.rule
+    # index = args.index
+    ip_allowed = args.allow_ip
+    ip_denied = args.deny_ip
+    country_allowed = args.allow_country
+    country_denied = args.deny_country
+    if args.disable:
+        rule_disabled = True
+    elif args.enable:
+        rule_disabled = False
+
+    rule_template_file = './assets/rule_template.json'
 
     # API config
     config = init_config(args.edgerc, args.section)
@@ -622,12 +659,43 @@ def modify_rule(args):
     policy_id = policy_info['policyId']
 
     # getting rule's details
-    if not os.path.isfile(rule_file):
-        root_logger.info('Rule file doesn\'t exist. Please double check rule file path')
-        return 1
+    if rule_file:
+        if not os.path.isfile(rule_file):
+            root_logger.info('Rule file doesn\'t exist. Please double check rule file path')
+            return 1
 
-    with open(rule_file) as fd:
-        rule_data = json.load(fd)
+        with open(rule_file) as fd:
+            rule_data = json.load(fd)
+
+    if ip_allowed or ip_denied:
+        # getting rule's template
+        with open(rule_template_file) as fd:
+            rule_data = json.load(fd)
+        rule_data['matches'][0]["matchType"] = "clientip"
+    if ip_allowed:
+        rule_data['allowDeny'] = "allow"
+        rule_data['matches'][0]['matchValue'] = ip_allowed
+    if ip_denied:
+        rule_data['allowDeny'] = "deny"
+        rule_data['matches'][0]['matchValue'] = ip_denied
+
+    if country_allowed or country_denied:
+        # getting rule's template
+        with open(rule_template_file) as fd:
+            rule_data = json.load(fd)
+        rule_data['matches'][0]["matchType"] = "countrycode"
+    if country_allowed:
+        rule_data['allowDeny'] = "allow"
+        rule_data['matches'][0]['matchValue'] = country_allowed
+    if country_denied:
+        rule_data['allowDeny'] = "deny"
+        rule_data['matches'][0]['matchValue'] = country_denied
+    
+    if rule_name:
+        rule_data['name'] = rule_name
+    
+    if not rule_disabled is None:
+        rule_data['disabled'] = rule_disabled
 
     try:
         response = cloudlet_object.modify_rule(policy_id, version, rule_id, json.dumps(rule_data))
