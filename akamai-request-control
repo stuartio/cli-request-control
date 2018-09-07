@@ -164,7 +164,9 @@ def cli():
             {"name": "allow_ip", "help": "Allow specified IP"},
             {"name": "deny_ip", "help": "Deny specified IP"},
             {"name": "allow_country", "help": "Allow specified country code"},
-            {"name": "deny_country", "help": "Deny specified country code"}
+            {"name": "deny_country", "help": "Deny specified country code"},
+            {"name": "give_branded_response_for_ip", "help": "Set branded response for specified IP"},
+            {"name": "give_branded_response_for_country", "help": "Set branded response for specified country code"},
         ],
         [
             {"name": "policy", "help": "Policy name"},
@@ -181,6 +183,8 @@ def cli():
             {"name": "deny_ip", "help": "Deny specified IP"},
             {"name": "allow_country", "help": "Allow specified country code"},
             {"name": "deny_country", "help": "Deny specified country code"},
+            {"name": "give_branded_response_for_ip", "help": "Set branded response for specified IP"},
+            {"name": "give_branded_response_for_country", "help": "Set branded response for specified country code"},
             {"name": "disable", "help": "Disable rule", "action": "store_true"},
             {"name": "enable", "help": "Enable rule", "action": "store_true"},
         ],
@@ -536,6 +540,8 @@ def add_rule(args):
     ip_denied = args.deny_ip
     country_allowed = args.allow_country
     country_denied = args.deny_country
+    branded_ip_denied = args.give_branded_response_for_ip
+    branded_country_denied = args.give_branded_response_for_country
 
     # @todo check if file || ip_allowed || ip_denied but not both!!!
 
@@ -575,19 +581,21 @@ def add_rule(args):
             rule_data = json.load(fd)
 
 
-    if ip_allowed or ip_denied:
+    if ip_allowed or ip_denied or branded_ip_denied:
         # getting rule's template
         with open(rule_template_file) as fd:
             rule_data = json.load(fd)
-
     if ip_allowed:
         rule_data['allowDeny'] = "allow"
         rule_data['matches'][0]['matchValue'] = ip_allowed
     if ip_denied:
         rule_data['allowDeny'] = "deny"
         rule_data['matches'][0]['matchValue'] = ip_denied
+    if branded_ip_denied:
+        rule_data['allowDeny'] = "denybranded"
+        rule_data['matches'][0]['matchValue'] = branded_ip_denied
     
-    if country_allowed or country_denied:
+    if country_allowed or country_denied or branded_country_denied:
         # getting rule's template
         with open(rule_template_file) as fd:
             rule_data = json.load(fd)
@@ -598,6 +606,10 @@ def add_rule(args):
     if country_denied:
         rule_data['allowDeny'] = "deny"
         rule_data['matches'][0]['matchValue'] = country_denied
+    if branded_country_denied:
+        rule_data['allowDeny'] = "denybranded"
+        rule_data['matches'][0]['matchValue'] = branded_country_denied
+        
 
     if rule_name:
         rule_data['name'] = rule_name
@@ -628,10 +640,15 @@ def modify_rule(args):
     ip_denied = args.deny_ip
     country_allowed = args.allow_country
     country_denied = args.deny_country
+    branded_ip_denied = args.give_branded_response_for_ip
+    branded_country_denied = args.give_branded_response_for_country
+
     if args.disable:
         rule_disabled = True
     elif args.enable:
         rule_disabled = False
+    else:
+        rule_disabled = None
 
     rule_template_file = './assets/rule_template.json'
 
@@ -667,7 +684,7 @@ def modify_rule(args):
         with open(rule_file) as fd:
             rule_data = json.load(fd)
 
-    if ip_allowed or ip_denied:
+    if ip_allowed or ip_denied or branded_ip_denied:
         # getting rule's template
         with open(rule_template_file) as fd:
             rule_data = json.load(fd)
@@ -678,8 +695,11 @@ def modify_rule(args):
     if ip_denied:
         rule_data['allowDeny'] = "deny"
         rule_data['matches'][0]['matchValue'] = ip_denied
-
-    if country_allowed or country_denied:
+    if branded_ip_denied:
+        rule_data['allowDeny'] = "denybranded"
+        rule_data['matches'][0]['matchValue'] = branded_ip_denied
+    
+    if country_allowed or country_denied or branded_country_denied:
         # getting rule's template
         with open(rule_template_file) as fd:
             rule_data = json.load(fd)
@@ -690,6 +710,10 @@ def modify_rule(args):
     if country_denied:
         rule_data['allowDeny'] = "deny"
         rule_data['matches'][0]['matchValue'] = country_denied
+    if branded_country_denied:
+        rule_data['allowDeny'] = "denybranded"
+        rule_data['matches'][0]['matchValue'] = branded_country_denied
+     
     
     if rule_name:
         rule_data['name'] = rule_name
