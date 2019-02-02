@@ -27,7 +27,6 @@ Commands:
   create-version 				Activate a specified version for a policy
   addRule 						Adds a new rule to a specified version for a policy
   modifyRule 					Modifies a rule to a specified version for a policy
-  deleteRule 					Deletes a rule to a specified version for a policy
 
 Command options:
   --edgerc <config>    Config file                		   [file] [default: $HOME/.edgerc]
