@@ -4,7 +4,7 @@ Provides a way to interact real-time with your Request Control Cloudlet via Open
 *NOTE:* This tool is intended to be installed via the Akamai CLI package manager, which can be retrieved from the releases page of the [Akamai CLI](https://github.com/akamai/cli) tool.
 
 ### Local Install, if you choose not to use the akamai package manager
-* Python 3+
+* Python 2.7
 * pip install edgegrid-python
 
 ### Credentials
@@ -19,14 +19,13 @@ blr-mp0ui:~ sharao$ akamai akamai-request-control
 Usage: akamai akamai-request-control <command> <args> [options]
 
 Commands:
-  setup                  		Download of Request Control Cloudlet policyIds and groupIds
+  setup                  		Download of Request Control Cloudlet policyIds and groupIds(Policies stored in ./cache/policies_IG.json)
   list                			List current Request Control Cloudlet policy names
-  show       					Get specific details for a policy name
-  activate     					Activate a specified version for a policy
   download 						Download the raw policy rules for a specified policy version
   create-version 				Activate a specified version for a policy
-  addRule 						Adds a new rule to a specified version for a policy
-  modifyRule 					Modifies a rule to a specified version for a policy
+  add-rule						Adds a new rule to a specified version for a policy
+  modify-rule					Modifies a rule to a specified version for a policy
+  activate     					Activate a specified version for a policy			
 
 Command options:
   --edgerc <config>    Config file                		   [file] [default: $HOME/.edgerc]
@@ -66,49 +65,6 @@ List all current Request Control Cloudlet policy names for all groups for the sp
 ```bash
 %  akamai-request-control list
 ```
-The flags of interest for show are:
-
-```
---groupid <groupid>        Lists policy name for a specific groupid
-```
-
-
-### show
-Get specific details for a policy name. Available information include configurations that reference that policy, current version numbers on Akamai staging and production, version history, and current rule settings.
-
-```bash
-%  akamai-request-control show --policy samplePolicyName
-%  akamai-request-control show --policy samplePolicyName --from-version 37
-%  akamai-request-control show --policy samplePolicyName --version 66
-%  akamai-request-control show --policy samplePolicyName --version 66 --verbose
-```
-
-The flags of interest for show are:
-
-```
---policy <policyName>        Specified Request Control Cloudlet policy name
---version <version>          Specific version number for that policy name (optional)
---from-version <fromVersion> If --version is not specified, list policy version details starting from --from-version value (optional)
---verbose                    If --version is specified, add --verbose to get full rule details including url paths and match criteria (optional)
-
-```
-
-### activate
-Activate a specified version for a policy to the appropriate network (staging or production)
-
-```bash
-%  akamai-request-control activate --policy samplePolicyName --version 87 --network staging
-%  akamai-request-control activate --policy samplePolicyName --version 71 --network production
-```
-
-The flags of interest for activate are:
-
-```
---policy <policyName>   Specified Request Control Cloudlet policy name
---version <version>     Specific version number for that policy name
---network <network>     Either staging or production
-
-```
 
 ### download
 Download the raw policy rules for a specified version in json format for local editing if desired.
@@ -145,71 +101,81 @@ The flags of interest for create-version are:
 ```
 
 
-### addRule
+### add-rule
 Add a new rule to a specific version in the specified policy.
 
 ```bash
-%  akamai-request-control addRule --policyName samplePolicyName --rule 'ruleName' --file rules.json
-%  akamai-request-control addRule --policyName samplePolicyName --rule 'ruleName' --allowIP '1.2.3.4,5.6.7.8/30'
-%  akamai-request-control addRule --policyName samplePolicyName --rule 'ruleName' --denyCountry 'IN,DE'
-%  akamai-request-control addRule --disable --policyName samplePolicyName --rule 'ruleName' --giveBrandedResponseForCountry 'PK'
+%  akamai-request-control add-rule --policyName samplePolicyName --rule 'ruleName' --file rules.json
+%  akamai-request-control add-rule --policyName samplePolicyName --rule 'ruleName' --allowIP '1.2.3.4,5.6.7.8/30'
+%  akamai-request-control add-rule --policyName samplePolicyName --rule 'ruleName' --denyCountry 'IN,DE'
+%  akamai-request-control add-rule --disable --policyName samplePolicyName --rule 'ruleName' --giveBrandedResponseForCountry 'PK'
 
 ```
 
 The flags of interest for addRule are:
 
 ```
---disable               		Adds the rule and disables the rule in the policy
---policy <policyName>   		Specified Request Control Cloudlet policy name
---rule <ruleName>       		Name of rule in policy that should be added. Use single quotes ('') in case rule name has spaces.
---file <file>	        		Filename of raw .json file to be used as rules details. This file should be in the /rules folder (optional)
---allowIP						List of IPs or CIDR blocks to be allowed separated by commas(,) within single quotes('')
---denyIP						List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
---giveBrandedResponseForIP		List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
---allowCountry					List of country codes(case-insensitive) to be allowed separated by commas(,) within single quotes('')
---denyCountry					List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes('')
---giveBrandedResponseForCountry	List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
+--policy <policyName>   			Specified Request Control Cloudlet policy name
+--version <version>					Specific version number for that policy name
+--rule <ruleName>       			Name of rule in policy that should be added. Use single quotes ('') in case rule name has spaces.
+--index <index>						Index for the rule
+--file <file>	        			Filename of raw .json file to be used as rules details. This file should be in the /rules folder (optional)
+--allow_ip							List of IPs or CIDR blocks to be allowed separated by commas(,) within single quotes('')
+--deny_ip							List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
+--allow_country						List of country codes(case-insensitive) to be allowed separated by commas(,) within single quotes('')
+--deny_country						List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes('')
+--give_branded_response_for_ip		List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
+--give_branded_response_for_country	List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
+
 ```
 
-### modifyRule
+### modify-rule
 Add a new rule to a specific version in the specified policy.
 
 ```bash
-%  akamai-request-control modifyRule --policyName samplePolicyName --rule 'ruleName' --file rules.json
-%  akamai-request-control modifyRule --policyName samplePolicyName --rule 'ruleName' --allowIP '1.2.3.4,5.6.7.8/30'
-%  akamai-request-control modifyRule --policyName samplePolicyName --rule 'ruleName' --denyCountry 'IN,DE'
-%  akamai-request-control modifyRule --disable --policyName samplePolicyName --rule 'ruleName' --giveBrandedResponseForCountry 'PK'
+%  akamai-request-control modify-rule --policyName samplePolicyName --rule 'ruleName' --file rules.json
+%  akamai-request-control modify-rule --policyName samplePolicyName --rule 'ruleName' --allowIP '1.2.3.4,5.6.7.8/30'
+%  akamai-request-control modify-rule --policyName samplePolicyName --rule 'ruleName' --denyCountry 'IN,DE'
+%  akamai-request-control modify-rule --disable --policyName samplePolicyName --rule 'ruleName' --giveBrandedResponseForCountry 'PK'
 
 ```
 
-The flags of interest for modifyRule are:
+The flags of interest for modify-rule are:
 
 ```
---disable               		Disables the rule in the policy
+
 --policy <policyName>   		Specified Request Control Cloudlet policy name
---rule <ruleName>       		Name of rule in policy that should be modified. Use single quotes ('') in case rule name has spaces.
+--version <version>				Specific version number for that policy name
+--rule_id <rule ID>				ID associated with that particular rule
 --file <file>	        		Filename of raw .json file to be used as rules details. This file should be in the /rules folder (optional)
---allowIP						List of IPs or CIDR blocks to be allowed separated by commas(,) within single quotes(''). This will replace the current allowed IP/CIDR list if any.
---denyIP						List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes(''). This will replace the current denied IP/CIDR list if any.
+--allow_ip						List of IPs or CIDR blocks to be allowed separated by commas(,) within single quotes('')
+--deny_ip						List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
+--allow_country					List of country codes(case-insensitive) to be allowed separated by commas(,) within single quotes('')
+--deny_country					List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes('')
 --giveBrandedResponseForIP		List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes(''). This will replace the current IP/CIDR list if any.
---allowCountry					List of country codes(case-insensitive) to be allowed separated by commas(,) within single quotes(''). This will replace the current allowed country list if any.
---denyCountry					List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes(''). This will replace the current denied country list if any.
 --giveBrandedResponseForCountry	List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes(''). This will replace the current country list if any.
+--enable               			Enables the rule in the policy
+--disable               		Disables the rule in the policy
 ```
 
-### deleteRule
-Add a new rule to a specific version in the specified policy.
+
+### activate
+Activate a specified version for a policy to the appropriate network (staging or production)
 
 ```bash
-%  akamai-request-control deleteRule --policyName samplePolicyName --rule 'ruleName'
+%  akamai-request-control activate --policy samplePolicyName --version 87 --network staging
+%  akamai-request-control activate --policy samplePolicyName --version 71 --network production
 ```
 
-The flags of interest for deleteRule are:
+The flags of interest for activate are:
 
 ```
---policy <policyName>   		Specified Request Control Cloudlet policy name
---rule <ruleName>       		Name of rule in policy that should be modified. Use single quotes ('') in case rule name has spaces.
+--policy <policyName>   Specified Request Control Cloudlet policy name
+--version <version>     Specific version number for that policy name
+--network <network>     Either staging or production
+
 ```
+
 
 ## Caveats/Info
 
