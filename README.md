@@ -20,12 +20,12 @@ Usage: akamai akamai-request-control <command> <args> [options]
 
 Commands:
   setup                 Download of Request Control Cloudlet policyIds and groupIds(Policies stored in ./cache/policies_IG.json)
-  list                	List current Request Control Cloudlet policy names
-  download 					    Download the raw policy rules for a specified policy version
-  create-version 		  	Activate a specified version for a policy
-  add-rule					    Adds a new rule to a specified version for a policy
-  modify-rule				    Modifies a rule to a specified version for a policy
-  activate     	  		  Activate a specified version for a policy			
+  list                  List current Request Control Cloudlet policy names
+  download              Download the raw policy rules for a specified policy version
+  create-version        Activate a specified version for a policy
+  add-rule              Adds a new rule to a specified version for a policy
+  modify-rule           Modifies a rule to a specified version for a policy
+  activate              Activate a specified version for a policy			
 
 Command options:
   --edgerc <config>    Config file                		     [file] [default: $HOME/.edgerc]
