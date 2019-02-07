@@ -19,16 +19,16 @@ blr-mp0ui:~ sharao$ akamai akamai-request-control
 Usage: akamai akamai-request-control <command> <args> [options]
 
 Commands:
-  setup                  		Download of Request Control Cloudlet policyIds and groupIds(Policies stored in ./cache/policies_IG.json)
-  list                			List current Request Control Cloudlet policy names
-  download 						Download the raw policy rules for a specified policy version
-  create-version 				Activate a specified version for a policy
-  add-rule						Adds a new rule to a specified version for a policy
-  modify-rule					Modifies a rule to a specified version for a policy
-  activate     					Activate a specified version for a policy			
+  setup                 Download of Request Control Cloudlet policyIds and groupIds(Policies stored in ./cache/policies_IG.json)
+  list                	List current Request Control Cloudlet policy names
+  download 					    Download the raw policy rules for a specified policy version
+  create-version 		  	Activate a specified version for a policy
+  add-rule					    Adds a new rule to a specified version for a policy
+  modify-rule				    Modifies a rule to a specified version for a policy
+  activate     	  		  Activate a specified version for a policy			
 
 Command options:
-  --edgerc <config>    Config file                		   [file] [default: $HOME/.edgerc]
+  --edgerc <config>    Config file                		     [file] [default: $HOME/.edgerc]
   --section <section>  Config section                             [string] [default: papi]
   --debug <debug>      Turn on debugging.                                        [boolean]
   --help               Show help                                [commands: help] [boolean]
@@ -42,14 +42,11 @@ Visit http://github.com/akamai/cli-cloudlet-request-control for detailed documen
 Main program that wraps this functionality in a command line utility:
 * [setup](#setup)
 * [list](#list)
-* [show](#show)
-* [activate](#activate)
 * [download](#download)
 * [create-version](#create-version)
-* [addRule](#addRule)
-* [modifyRule](#modifyRule)
-* [deleteRule](#deleteRule)
-
+* [add-rule](#addRule)
+* [modify-rule](#modifyRule)
+* [activate](#activate)
 
 
 ### setup
