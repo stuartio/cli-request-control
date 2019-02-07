@@ -85,8 +85,8 @@ Create a new policy version from a raw json file
 
 ```bash
 %  akamai-request-control create-version --policy samplePolicyName
-%  akamai-request-control create-version --policy samplePolicyName --file filename.json
-%  akamai-request-control create-version --policy samplePolicyName --file filename.json --force
+%  akamai-request-control create-version --policy samplePolicyName --file filename.json (optional)
+%  akamai-request-control create-version --policy samplePolicyName --file filename.json --force (optional)
 ```
 
 The flags of interest for create-version are:
@@ -113,15 +113,15 @@ The flags of interest for addRule are:
 ```
 --policy <policyName>         Specified Request Control Cloudlet policy name
 --version <version>           Specific version number for that policy name
---rule <ruleName>             Name of rule in policy that should be added. Use single quotes ('') in case rule name has spaces.
---index <index>               Index for the rule
+--rule <ruleName>             Name of rule in policy that should be added. Use single quotes ('') in case rule name has spaces. (optional)
+--index <index>               Index for the rule (optional)
 --file <file>                 Filename of raw .json file to be used as rules details. This file should be in the /rules folder (optional)
---allow_ip                    List of IPs or CIDR blocks to be allowed separated by commas(,) within single quotes('')
---deny_ip                     List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
---allow_country               List of country codes(case-insensitive) to be allowed separated by commas(,) within single quotes('')
---deny_country                List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes('')
---give_branded_response_for_ip        List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
---give_branded_response_for_country   List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
+--allow_ip                    List of IPs or CIDR blocks to be allowed separated by commas(,) within single quotes('') (optional)
+--deny_ip                     List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('') (optional)
+--allow_country               List of country codes(case-insensitive) to be allowed separated by commas(,) within single quotes('') (optional)
+--deny_country                List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes('') (optional)
+--give_branded_response_for_ip        List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('') (optional)
+--give_branded_response_for_country   List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('') (optional)
 
 ```
 
@@ -141,15 +141,16 @@ The flags of interest for modify-rule are:
 --policy <policyName>         Specified Request Control Cloudlet policy name
 --version <version>           Specific version number for that policy name
 --rule_id <rule ID>           ID associated with that particular rule
+--rule <ruleName>             Name of rule in policy that should be added. Use single quotes ('') in case rule name has spaces. (optional)
 --file <file>                 Filename of raw .json file to be used as rules details. This file should be in the /rules folder (optional)
---allow_ip                    List of IPs or CIDR blocks to be allowed separated by commas(,) within single quotes('')
---deny_ip                     List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
---allow_country               List of country codes(case-insensitive) to be allowed separated by commas(,) within single quotes('')
---deny_country                List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes('')
---giveBrandedResponseForIP        List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes(''). This will replace the current IP/CIDR list if any.
---giveBrandedResponseForCountry	  List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes(''). This will replace the current country list if any.
---enable                      Enables the rule in the policy
---disable                     Disables the rule in the policy
+--allow_ip                    List of IPs or CIDR blocks to be allowed separated by commas(,) within single quotes('') (optional)
+--deny_ip                     List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('') (optional)
+--allow_country               List of country codes(case-insensitive) to be allowed separated by commas(,) within single quotes('') (optional)
+--deny_country                    List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes('') (optional)
+--giveBrandedResponseForIP        List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes(''). This will replace the current IP/CIDR list if any. (optional)
+--giveBrandedResponseForCountry   List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes(''). This will replace the current country list if any. (optional)
+--enable                      Enables the rule in the policy (optional)
+--disable                     Disables the rule in the policy(optional)
 ```
 
 
@@ -164,9 +165,9 @@ Activate a specified version for a policy to the appropriate network (staging or
 The flags of interest for activate are:
 
 ```
---policy <policyName>   Specified Request Control Cloudlet policy name
 --version <version>     Specific version number for that policy name
 --network <network>     Either staging or production
+--policy <policyName>   Specified Request Control Cloudlet policy name (optional)
 
 ```
 
