@@ -85,16 +85,16 @@ Create a new policy version from a raw json file
 
 ```bash
 %  akamai-request-control create-version --policy samplePolicyName
-%  akamai-request-control create-version --policy samplePolicyName --file filename.json (optional)
-%  akamai-request-control create-version --policy samplePolicyName --file filename.json --force (optional)
+%  akamai-request-control create-version --policy samplePolicyName --file filename.json 
+%  akamai-request-control create-version --policy samplePolicyName --file filename.json --force 
 ```
 
 The flags of interest for create-version are:
 
 ```
 --policy <policyName>   Specified Request Control Cloudlet policy name
---file <file>           Filename of raw .json file to be used as policy details. This file should be in the /rules folder (optional)
---force                 Use this flag if you want to proceed without confirmation if description field in json has not been updated
+--file <file>           Filename of raw .json file to be used as policy details. (optional)
+--force                 Use this flag if you want to proceed without confirmation if description field in json has not been updated (optional)
 ```
 
 
