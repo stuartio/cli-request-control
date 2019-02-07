@@ -50,7 +50,7 @@ Main program that wraps this functionality in a command line utility:
 
 
 ### setup
-Does a one time download of Request Control Cloudlet policyIds and groupIds and stores them in /setup folder for faster local retrieval. This command can be run anytime and will refresh the /setup folder based on the current list of policies. 
+Does a one time download of Request Control Cloudlet policyIds and groupIds and stores them in /cache/policies_IG folder for faster local retrieval. This command can be run anytime and will refresh the /policies_IG folder based on the current list of policies. 
 
 ```bash
 %  akamai-request-control setup
@@ -92,9 +92,9 @@ Create a new policy version from a raw json file
 The flags of interest for create-version are:
 
 ```
---policy <policyName>  Specified Request Control Cloudlet policy name
---file <file>	       Filename of raw .json file to be used as policy details. This file should be in the /rules folder (optional)
---force                Use this flag if you want to proceed without confirmation if description field in json has not been updated
+--policy <policyName>   Specified Request Control Cloudlet policy name
+--file <file>           Filename of raw .json file to be used as policy details. This file should be in the /rules folder (optional)
+--force                 Use this flag if you want to proceed without confirmation if description field in json has not been updated
 ```
 
 
@@ -106,53 +106,50 @@ Add a new rule to a specific version in the specified policy.
 %  akamai-request-control add-rule --policyName samplePolicyName --rule 'ruleName' --allowIP '1.2.3.4,5.6.7.8/30'
 %  akamai-request-control add-rule --policyName samplePolicyName --rule 'ruleName' --denyCountry 'IN,DE'
 %  akamai-request-control add-rule --disable --policyName samplePolicyName --rule 'ruleName' --giveBrandedResponseForCountry 'PK'
-
 ```
 
 The flags of interest for addRule are:
 
 ```
---policy <policyName>   			Specified Request Control Cloudlet policy name
---version <version>					Specific version number for that policy name
---rule <ruleName>       			Name of rule in policy that should be added. Use single quotes ('') in case rule name has spaces.
---index <index>						Index for the rule
---file <file>	        			Filename of raw .json file to be used as rules details. This file should be in the /rules folder (optional)
---allow_ip							List of IPs or CIDR blocks to be allowed separated by commas(,) within single quotes('')
---deny_ip							List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
---allow_country						List of country codes(case-insensitive) to be allowed separated by commas(,) within single quotes('')
---deny_country						List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes('')
---give_branded_response_for_ip		List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
---give_branded_response_for_country	List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
+--policy <policyName>         Specified Request Control Cloudlet policy name
+--version <version>           Specific version number for that policy name
+--rule <ruleName>             Name of rule in policy that should be added. Use single quotes ('') in case rule name has spaces.
+--index <index>               Index for the rule
+--file <file>                 Filename of raw .json file to be used as rules details. This file should be in the /rules folder (optional)
+--allow_ip                    List of IPs or CIDR blocks to be allowed separated by commas(,) within single quotes('')
+--deny_ip                     List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
+--allow_country               List of country codes(case-insensitive) to be allowed separated by commas(,) within single quotes('')
+--deny_country                List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes('')
+--give_branded_response_for_ip        List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
+--give_branded_response_for_country   List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
 
 ```
 
 ### modify-rule
-Add a new rule to a specific version in the specified policy.
+Add a new rule to a specific version in the specified policy. ruleID can be obtained by downloading the policy rules.
 
 ```bash
-%  akamai-request-control modify-rule --policyName samplePolicyName --rule 'ruleName' --file rules.json
-%  akamai-request-control modify-rule --policyName samplePolicyName --rule 'ruleName' --allowIP '1.2.3.4,5.6.7.8/30'
-%  akamai-request-control modify-rule --policyName samplePolicyName --rule 'ruleName' --denyCountry 'IN,DE'
-%  akamai-request-control modify-rule --disable --policyName samplePolicyName --rule 'ruleName' --giveBrandedResponseForCountry 'PK'
-
+%  akamai-request-control modify-rule --policyName samplePolicyName --rule_id 'rule_id' --file rules.json
+%  akamai-request-control modify-rule --policyName samplePolicyName --rule_id 'rule_id' --allowIP '1.2.3.4,5.6.7.8/30'
+%  akamai-request-control modify-rule --policyName samplePolicyName --rule_id 'rule_id' --denyCountry 'IN,DE'
+%  akamai-request-control modify-rule --disable --policyName samplePolicyName --rule_id 'rule_id' --giveBrandedResponseForCountry 'PK'
 ```
 
 The flags of interest for modify-rule are:
 
 ```
-
---policy <policyName>   		Specified Request Control Cloudlet policy name
---version <version>				Specific version number for that policy name
---rule_id <rule ID>				ID associated with that particular rule
---file <file>	        		Filename of raw .json file to be used as rules details. This file should be in the /rules folder (optional)
---allow_ip						List of IPs or CIDR blocks to be allowed separated by commas(,) within single quotes('')
---deny_ip						List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
---allow_country					List of country codes(case-insensitive) to be allowed separated by commas(,) within single quotes('')
---deny_country					List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes('')
---giveBrandedResponseForIP		List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes(''). This will replace the current IP/CIDR list if any.
---giveBrandedResponseForCountry	List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes(''). This will replace the current country list if any.
---enable               			Enables the rule in the policy
---disable               		Disables the rule in the policy
+--policy <policyName>         Specified Request Control Cloudlet policy name
+--version <version>           Specific version number for that policy name
+--rule_id <rule ID>           ID associated with that particular rule
+--file <file>                 Filename of raw .json file to be used as rules details. This file should be in the /rules folder (optional)
+--allow_ip                    List of IPs or CIDR blocks to be allowed separated by commas(,) within single quotes('')
+--deny_ip                     List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
+--allow_country               List of country codes(case-insensitive) to be allowed separated by commas(,) within single quotes('')
+--deny_country                List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes('')
+--giveBrandedResponseForIP        List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes(''). This will replace the current IP/CIDR list if any.
+--giveBrandedResponseForCountry	  List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes(''). This will replace the current country list if any.
+--enable                      Enables the rule in the policy
+--disable                     Disables the rule in the policy
 ```
 
 
