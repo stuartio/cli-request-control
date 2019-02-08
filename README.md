@@ -167,7 +167,7 @@ The flags of interest for activate are:
 ```
 --version <version>     Specific version number for that policy name
 --network <network>     Either staging or production
---policy <policyName>   Specified Request Control Cloudlet policy name (optional)
+--policy <policyName>   Specified Request Control Cloudlet policy name 
 
 ```
 
