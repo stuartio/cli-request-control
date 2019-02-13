@@ -155,7 +155,11 @@ class EdgeGridHttpCaller():
         if self.verbose: print ("LOG: PUT %s %s %s" % (endpoint,status,endpoint_result.headers["content-type"]))
         if status == 204:
             return {}
+        
         if self.verbose: print (">>>\n" + json.dumps(endpoint_result.json(), indent=2) + "\n<<<\n")
+
+        result_json = endpoint_result.json()
+        self.httpErrors(status, endpoint, result_json)
 
         # print "URL: " + endpoint_result.url
         
