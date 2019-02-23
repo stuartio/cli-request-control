@@ -15,27 +15,21 @@ In order to use this configuration, you need to:
 ### Overview
 
 ```
-blr-mp0ui:~ sharao$ akamai request-control
+$ akamai request-control help
 Usage: akamai request-control <command> <args> [options]
 
 Commands:
-  setup                 Download of Request Control Cloudlet policyIds and groupIds(Policies stored in ./cache/policies_IG.json)
+  help         			Show available help
+  setup                 Initial setup to cache policy list information
   list                  List current Request Control Cloudlet policy names
-  download              Download the raw policy rules for a specified policy version
-  create-version        Activate a specified version for a policy
+  download              Download the policy version rules json and output to rules
+                		folder. (Optionally, use --output-file to specify location
+                  		of outputfile)
+  create-version        Create a new policy version using a local file from the rules folder with name <policy>.json
   add-rule              Adds a new rule to a specified version for a policy
   modify-rule           Modifies a rule to a specified version for a policy
   activate              Activate a specified version for a policy			
 
-Command options:
-  --edgerc <config>    Config file                		     [file] [default: $HOME/.edgerc]
-  --section <section>  Config section                             [string] [default: papi]
-  --debug <debug>      Turn on debugging.                                        [boolean]
-  --help               Show help                                [commands: help] [boolean]
-  --version            Show version number                   [commands: version] [boolean]
-
-Copyright (C) Akamai Technologies, Inc
-Visit http://github.com/akamai/cli-cloudlet-request-control for detailed documentation
 ```
 
 ## cli-cloudlet-request-control
@@ -53,22 +47,22 @@ Main program that wraps this functionality in a command line utility:
 Does a one time download of Request Control Cloudlet policyIds and groupIds and stores them in /cache/policies_IG folder for faster local retrieval. This command can be run anytime and will refresh the /policies_IG folder based on the current list of policies. 
 
 ```bash
-%  request-control setup
+%  akamai-request-control setup
 ```
 
 ### list
 List all current Request Control Cloudlet policy names for all groups for the specific account
 
 ```bash
-%  request-control list
+%  akamai-request-control list
 ```
 
 ### download
 Download the raw policy rules for a specified version in json format for local editing if desired.
 
 ```bash
-%  request-control download --policy samplePolicyName --version 87
-%  request-control download --policy samplePolicyName --version 71 --output-file savefilename.json
+%  akamai-request-control download --policy samplePolicyName --version 87
+%  akamai-request-control download --policy samplePolicyName --version 71 --output-file savefilename.json
 ```
 
 The flags of interest for download are:
@@ -84,9 +78,9 @@ The flags of interest for download are:
 Create a new policy version from a raw json file
 
 ```bash
-%  request-control create-version --policy samplePolicyName
-%  request-control create-version --policy samplePolicyName --file filename.json 
-%  request-control create-version --policy samplePolicyName --file filename.json --force 
+%  akamai-request-control create-version --policy samplePolicyName
+%  akamai-request-control create-version --policy samplePolicyName --file filename.json 
+%  akamai-request-control create-version --policy samplePolicyName --file filename.json --force 
 ```
 
 The flags of interest for create-version are:
@@ -102,10 +96,10 @@ The flags of interest for create-version are:
 Add a new rule to a specific version in the specified policy.
 
 ```bash
-%  request-control add-rule --policy samplePolicyName --version 6 --allowIP '1.2.3.4/30'
-%  request-control add-rule --policy samplePolicyName --version 7 --rule 'ruleName' --deny_country 'US DE'
-%  request-control add-rule --policy samplePolicyName --version 6 --rule 'ruleName' --give_branded_response_for_country 'IN'
-%  request-control add-rule --policy samplePolicyName --version 9 --file filename.json
+%  akamai-request-control add-rule --policy samplePolicyName --version 6 --allowIP '1.2.3.4/30'
+%  akamai-request-control add-rule --policy samplePolicyName --version 7 --rule 'ruleName' --deny_country 'US DE'
+%  akamai-request-control add-rule --policy samplePolicyName --version 6 --rule 'ruleName' --give_branded_response_for_country 'IN'
+%  akamai-request-control add-rule --policy samplePolicyName --version 9 --file filename.json
 ```
 
 The flags of interest for addRule are:
@@ -129,10 +123,10 @@ The flags of interest for addRule are:
 Add a new rule to a specific version in the specified policy. ruleID can be obtained by downloading the policy rules.
 
 ```bash
-%  request-control modify-rule --policy samplePolicyName --version 8 --rule_id 896fghk236eef056 --file filename.json
-%  request-control modify-rule --policy samplePolicyName --version 7 --rule_id dg4j5dod70eb5pa2 --deny_country 'IN'
-%  request-control modify-rule --policy samplePolicyName --version 9 --rule_id hj7j8keb5pa678g2 --give_branded_response_for_ip '1.2.3.4 5.6.7.8'
-%  request-control modify-rule --disable --policy samplePolicyName --version 10 --rule_id 'rule_id' --give_branded_response_for_country 'VI' --disable
+%  akamai-request-control modify-rule --policy samplePolicyName --version 8 --rule_id 896fghk236eef056 --file filename.json
+%  akamai-request-control modify-rule --policy samplePolicyName --version 7 --rule_id dg4j5dod70eb5pa2 --deny_country 'IN'
+%  akamai-request-control modify-rule --policy samplePolicyName --version 9 --rule_id hj7j8keb5pa678g2 --give_branded_response_for_ip '1.2.3.4 5.6.7.8'
+%  akamai-request-control modify-rule --disable --policy samplePolicyName --version 10 --rule_id 'rule_id' --give_branded_response_for_country 'VI' --disable
 ```
 
 The flags of interest for modify-rule are:
@@ -158,8 +152,8 @@ The flags of interest for modify-rule are:
 Activate a specified version for a policy to the appropriate network (staging or production)
 
 ```bash
-%  request-control activate --policy samplePolicyName --version 87 --network staging
-%  request-control activate --policy samplePolicyName --version 71 --network production
+%  akamai-request-control activate --policy samplePolicyName --version 87 --network staging
+%  akamai-request-control activate --policy samplePolicyName --version 71 --network production
 ```
 
 The flags of interest for activate are:
