@@ -19,16 +19,15 @@ $ akamai request-control help
 Usage: akamai request-control <command> <args> [options]
 
 Commands:
-  help         			    Show available help
-  setup                 Initial setup to cache policy list information
-  list                  List current Request Control Cloudlet policy names
-  download              Download the policy version rules json and output to rules
-                		    folder. (Optionally, use --output-file to specify location
-                  	  	of outputfile)
-  create-version        Create a new policy version using a local file from the rules folder with name <policy>.json
-  add-rule              Adds a new rule to a specified version for a policy
-  modify-rule           Modifies a rule to a specified version for a policy
-  activate              Activate a specified version for a policy			
+  help                Show available help
+  setup               Initial setup to cache policy list information
+  list                List current Request Control Cloudlet policy names
+  download            Download the policy version rules json and output to rules 
+                      folder. (Optionally, use --output-file to specify location of outputfile)
+  create-version      Create a new policy version using a local file from the rules folder with name <policy>.json
+  add-rule            Adds a new rule to a specified version for a policy
+  modify-rule         Modifies a rule to a specified version for a policy
+  activate            Activate a specified version for a policy			
 
 ```
 
