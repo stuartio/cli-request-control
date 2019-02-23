@@ -119,13 +119,13 @@ def cli():
     actions["setup"] = create_sub_command(
         subparsers,
         "setup",
-        "Initial setup to cache policy list"
+        "Initial setup to cache policy list "
         "information")
 
     actions["list"] = create_sub_command(
         subparsers,
         "list",
-        "Lists policies from the account"
+        "Lists policies from the account "
         "information")
 
     actions["download"] = create_sub_command(
