@@ -48,8 +48,8 @@ Main program that wraps this functionality in a command line utility:
 * [list](#list)
 * [download](#download)
 * [create-version](#create-version)
-* [add-rule](#addRule)
-* [modify-rule](#modifyRule)
+* [add-rule](#add-rule)
+* [modify-rule](#modify-rule)
 * [activate](#activate)
 
 
