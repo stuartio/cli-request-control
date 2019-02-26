@@ -16,18 +16,29 @@ In order to use this configuration, you need to:
 
 ```
 $ akamai request-control help
-Usage: akamai request-control <command> <args> [options]
+usage: akamai request-control help [command] [--version]  ...
+
+Akamai CLI for Request Control
+
+optional arguments:
+  --version       show program's version number and exit
 
 Commands:
-  help                Show available help
-  setup               Initial setup to cache policy list information
-  list                List current Request Control Cloudlet policy names
-  download            Download the policy version rules json and output to rules 
-                      folder. (Optionally, use --output-file to specify location of outputfile)
-  create-version      Create a new policy version using a local file from the rules folder with name <policy>.json
-  add-rule            Adds a new rule to a specified version for a policy
-  modify-rule         Modifies a rule to a specified version for a policy
-  activate            Activate a specified version for a policy			
+  
+    help          Show available help
+    setup         Initial setup to cache policy listinformation
+    list          Lists policies from the accountinformation
+    download      Download the policy version rules json and output to rules
+                  folder. (Optionally, use --output-file to specify location
+                  of outputfile)
+    create-version
+                  Create a new policy version using a local file from the
+                  rules folder with name <policy>.json
+    activate      Activate a specific policy version
+    add-rule      Add a new rule to a specific version in the specified
+                  policy.
+    modify-rule   Updates attributes of an existing rule within a policy
+                  version.			
 
 ```
 
