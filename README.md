@@ -134,9 +134,9 @@ Add a new rule to a specific version in the specified policy. ruleID can be obta
 
 ```bash
 %  akamai rc modify-rule --policy samplePolicyName --version 8 --rule_id 896fghk236eef056 --file filename.json
-%  akamai rc modify-rule --policy samplePolicyName --version 7 --rule_id dg4j5dod70eb5pa2 --deny_country 'IN'
-%  akamai rc modify-rule --policy samplePolicyName --version 9 --rule_id hj7j8keb5pa678g2 --give_branded_response_for_ip '1.2.3.4 5.6.7.8'
-%  akamai rc modify-rule --disable --policy samplePolicyName --version 10 --rule_id 'rule_id' --give_branded_response_for_country 'VI' --disable
+%  akamai rc modify-rule --policy samplePolicyName --version 7 --rule_id dg4j5dod70eb5pa2 --deny-country 'IN'
+%  akamai rc modify-rule --policy samplePolicyName --version 9 --rule_id hj7j8keb5pa678g2 --ip-branded-response '1.2.3.4 5.6.7.8'
+%  akamai rc modify-rule --disable --policy samplePolicyName --version 10 --rule_id 'rule_id' --country-branded-response 'VI' --disable
 ```
 
 The flags of interest for modify-rule are:
