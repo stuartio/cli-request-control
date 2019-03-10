@@ -130,7 +130,7 @@ def cli():
 
     actions["retrieve"] = create_sub_command(
         subparsers, "retrieve",
-        "Download the policy version rules json and output to "
+        "Retrieve the policy version rules json and output to "
         "rules folder. (Optionally, use --output-file to specify "
         "location of outputfile)",
         [{"name": "output-file",
@@ -140,8 +140,8 @@ def cli():
 
     actions["create-version"] = create_sub_command(
         subparsers, "create-version",
-        "Create a new policy version using a local file from the "
-        "rules folder with name <policy>.json",
+        "Create a new policy version using a local file "
+        "with name <policy>.json",
         [{"name": "force", "help": "Do not prompt for user confirmation",
           "action": "store_true"},
           {"name": "file", "help": "File path for input rules file"}],
@@ -149,11 +149,12 @@ def cli():
 
     actions["activate"] = create_sub_command(
         subparsers, "activate", "Activate a specific policy version",
-        [{"name": "policy", "help": "Policy name"}],
+        [],
         [{"name": "network",
           "help": "Network to be activated on (case-insensitive).",
           "type": str.lower, "choices": {"staging", "production"}},
-         {"name": "version", "help": "Version number of the policy"}])
+         {"name": "version", "help": "Version number of the policy"},
+         {"name": "policy", "help": "Policy name"}])
 
     actions["add-rule"] = create_sub_command(
         subparsers, "add-rule", "Add a new rule to a specific version in the specified policy.",
@@ -161,12 +162,12 @@ def cli():
             {"name": "rule", "help": "Rule name"},
             {"name": "index", "help": "Index"},
             {"name": "file", "help": "Path to file containing rule details"},
-            {"name": "allow-ip", "help": "Allow specified IP"},
-            {"name": "deny-ip", "help": "Deny specified IP"},
-            {"name": "allow-country", "help": "Allow specified country code"},
-            {"name": "deny-country", "help": "Deny specified country code"},
-            {"name": "ip-branded-response", "help": "Set branded response for specified IP"},
-            {"name": "country-branded-response", "help": "Set branded response for specified country code"},
+            {"name": "allowIP", "help": "Allow specified IP"},
+            {"name": "denyIP", "help": "Deny specified IP"},
+            {"name": "allowCountry", "help": "Allow specified country code"},
+            {"name": "denyCountry", "help": "Deny specified country code"},
+            {"name": "ipBrandedResponse", "help": "Set branded response for specified IP"},
+            {"name": "countryBrandedResponse", "help": "Set branded response for specified country code"},
         ],
         [
             {"name": "policy", "help": "Policy name"},
@@ -179,19 +180,19 @@ def cli():
             {"name": "rule", "help": "Rule name"},
             # {"name": "index", "help": "Index"},
             {"name": "file", "help": "Path to file containing rule details"},
-            {"name": "allow-ip", "help": "Allow specified IP"},
-            {"name": "deny-ip", "help": "Deny specified IP"},
-            {"name": "allow-country", "help": "Allow specified country code"},
-            {"name": "deny-country", "help": "Deny specified country code"},
-            {"name": "ip-branded-response", "help": "Set branded response for specified IP"},
-            {"name": "country-branded-response", "help": "Set branded response for specified country code"},
+            {"name": "allowIP", "help": "Allow specified IP"},
+            {"name": "denyIP", "help": "Deny specified IP"},
+            {"name": "allowCountry", "help": "Allow specified country code"},
+            {"name": "denyCountry", "help": "Deny specified country code"},
+            {"name": "ipBrandedResponse", "help": "Set branded response for specified IP"},
+            {"name": "countryBrandedResponse", "help": "Set branded response for specified country code"},
             {"name": "disable", "help": "Disable rule", "action": "store_true"},
             {"name": "enable", "help": "Enable rule", "action": "store_true"},
         ],
         [
             {"name": "policy", "help": "Policy name"},
             {"name": "version", "help": "Version number of the policy"},
-            {"name": "rule_id", "help": "Rule Id"}
+            {"name": "ruleID", "help": "Rule Id"}
         ])
 
     args = parser.parse_args()
@@ -536,12 +537,12 @@ def add_rule(args):
     rule_name = args.rule
     version = args.version
     index = args.index
-    ip_allowed = args.allow-ip
-    ip_denied = args.deny-ip
-    country_allowed = args.allow-country
-    country_denied = args.deny-country
-    branded_ip_denied = args.ip-branded-response
-    branded_country_denied = args.country-branded-response
+    ip_allowed = args.allowIP
+    ip_denied = args.denyIP
+    country_allowed = args.allowCountry
+    country_denied = args.denyCountry
+    branded_ip_denied = args.ipBrandedResponse
+    branded_country_denied = args.countryBrandedResponse
 
     # @todo check if file || ip_allowed || ip_denied but not both!!!
 
@@ -632,16 +633,16 @@ def modify_rule(args):
 
     policy = args.policy
     version = args.version
-    rule_id = args.rule_id
+    rule_id = args.ruleID
     rule_file = args.file
     rule_name = args.rule
     # index = args.index
-    ip_allowed = args.allow-ip
-    ip_denied = args.deny-ip
-    country_allowed = args.allow-country
-    country_denied = args.deny-country
-    branded_ip_denied = args.ip-branded-response
-    branded_country_denied = args.country-branded-response
+    ip_allowed = args.allowIP
+    ip_denied = args.denyIP
+    country_allowed = args.allowCountry
+    country_denied = args.denyCountry
+    branded_ip_denied = args.ipBrandedResponse
+    branded_country_denied = args.countryBrandedResponse
 
     if args.disable:
         rule_disabled = True
@@ -661,7 +662,7 @@ def modify_rule(args):
         policy +
         ' version ' +
         version +
-        ' rule_id ' +
+        ' ruleID ' +
         rule_id)
     
     # getting policy info from local cache
