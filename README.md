@@ -28,8 +28,7 @@ Commands:
     help          Show available help
     setup         Initial setup to cache policy list information
     list          Lists policies from the account information
-    retrieve      Retrieve the policy version rules json and output to rules
-                  folder. (Optionally, use --output-file to specify location
+    retrieve      Download the policy version rules json. (Optionally, use --output-file to specify location
                   of outputfile)
     create-version
                   Create a new policy version using a local file with name

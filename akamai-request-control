@@ -130,8 +130,7 @@ def cli():
 
     actions["retrieve"] = create_sub_command(
         subparsers, "retrieve",
-        "Retrieve the policy version rules json and output to "
-        "rules folder. (Optionally, use --output-file to specify "
+        "Download the policy version rules json. (Optionally, use --output-file to specify "
         "location of outputfile)",
         [{"name": "output-file",
           "help": "Output filename to store the rules"}],
