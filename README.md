@@ -106,9 +106,9 @@ The flags of interest for create-version are:
 Add a new rule to a specific version in the specified policy.
 
 ```bash
-%  akamai rc add-rule --policy samplePolicyName --version 6 --allowIP '1.2.3.4/30'
-%  akamai rc add-rule --policy samplePolicyName --version 7 --rule 'ruleName' --denyCountry 'US DE'
-%  akamai rc add-rule --policy samplePolicyName --version 6 --rule 'ruleName' --countryBrandedResponse 'IN'
+%  akamai rc add-rule --policy samplePolicyName --version 6 --allow-ip '1.2.3.4/30'
+%  akamai rc add-rule --policy samplePolicyName --version 7 --rule 'ruleName' --deny-country 'US DE'
+%  akamai rc add-rule --policy samplePolicyName --version 6 --rule 'ruleName' --country-branded-response 'IN'
 %  akamai rc add-rule --policy samplePolicyName --version 9 --file filename.json
 ```
 
@@ -120,12 +120,12 @@ The flags of interest for add-rule are:
 --rule <ruleName>             Name of rule in policy that should be added. Use single quotes ('') in case rule name has spaces. (optional)
 --index <index>               Index for the rule (optional)
 --file <file>                 Filename of raw .json file to be used as rules details. (optional)
---allowIP                     List of IPs or CIDR blocks to be allowed separated by commas(,) within single quotes('') 
---denyIP                      List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('') 
---allowCountry                List of country codes(case-insensitive) to be allowed separated by commas(,) within single quotes('') 
---denyCountry                 List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes('') 
---ipBrandedResponse           List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('') 
---countryBrandedResponse      List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes('') 
+--allow-ip                    List of IPs or CIDR blocks to be allowed separated by commas(,) within single quotes('') 
+--deny-ip                     List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('') 
+--allow-country               List of country codes(case-insensitive) to be allowed separated by commas(,) within single quotes('') 
+--deny-country                List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes('') 
+--ip-branded-response         List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('') 
+--country-branded-response    List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes('') 
 
 ```
 
@@ -133,10 +133,10 @@ The flags of interest for add-rule are:
 Add a new rule to a specific version in the specified policy. ruleID can be obtained by downloading the policy rules.
 
 ```bash
-%  akamai rc modify-rule --policy samplePolicyName --version 8 --rule_id 896fghk236eef056 --file filename.json
-%  akamai rc modify-rule --policy samplePolicyName --version 7 --rule_id dg4j5dod70eb5pa2 --deny-country 'IN'
-%  akamai rc modify-rule --policy samplePolicyName --version 9 --rule_id hj7j8keb5pa678g2 --ip-branded-response '1.2.3.4 5.6.7.8'
-%  akamai rc modify-rule --disable --policy samplePolicyName --version 10 --rule_id 'rule_id' --country-branded-response 'VI' --disable
+%  akamai rc modify-rule --policy samplePolicyName --version 8 --rule-id 896fghk236eef056 --file filename.json
+%  akamai rc modify-rule --policy samplePolicyName --version 7 --rule-id dg4j5dod70eb5pa2 --deny-country 'IN'
+%  akamai rc modify-rule --policy samplePolicyName --version 9 --rule-id hj7j8keb5pa678g2 --ip-branded-response '1.2.3.4 5.6.7.8'
+%  akamai rc modify-rule --disable --policy samplePolicyName --version 10 --rule-id 'rule-id' --country-branded-response 'VI' --disable
 ```
 
 The flags of interest for modify-rule are:
@@ -144,15 +144,15 @@ The flags of interest for modify-rule are:
 ```
 --policy <policyName>         Specified Request Control Cloudlet policy name
 --version <version>           Specific version number for that policy name
---ruleID <rule ID>           ID associated with that particular rule
+--rule-id <rule ID>           ID associated with that particular rule
 --rule <ruleName>             Name of rule in policy that should be added. Use single quotes ('') in case rule name has spaces. (optional)
 --file <file>                 Filename of raw .json file to be used as rules details. (optional)
---allowIP                     List of IPs or CIDR blocks to be allowed separated by commas(,) within single quotes('')
---denyIP                      List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
---allowCountry                List of country codes(case-insensitive) to be allowed separated by commas(,) within single quotes('') 
---denyCountry                 List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes('') 
---ipBrandedResponse           List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes(''). This will replace the current IP/CIDR list if any. 
---countryBrandedResponse      List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes(''). This will replace the current country list if any. 
+--allow-ip                    List of IPs or CIDR blocks to be allowed separated by commas(,) within single quotes('')
+--deny-ip                     List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes('')
+--allow-country               List of country codes(case-insensitive) to be allowed separated by commas(,) within single quotes('') 
+--deny-country                List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes('') 
+--ip-branded-response         List of IPs or CIDR blocks to be blocked separated by commas(,) within single quotes(''). This will replace the current IP/CIDR list if any. 
+--country-branded-response    List of country codes(case-insensitive) to be blocked separated by commas(,) within single quotes(''). This will replace the current country list if any. 
 --enable                      Enables the rule in the policy 
 --disable                     Disables the rule in the policy
 ```
