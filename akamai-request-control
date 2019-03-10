@@ -128,8 +128,8 @@ def cli():
         "Lists policies from the account "
         "information")
 
-    actions["download"] = create_sub_command(
-        subparsers, "download",
+    actions["retrieve"] = create_sub_command(
+        subparsers, "retrieve",
         "Download the policy version rules json and output to "
         "rules folder. (Optionally, use --output-file to specify "
         "location of outputfile)",
@@ -161,12 +161,12 @@ def cli():
             {"name": "rule", "help": "Rule name"},
             {"name": "index", "help": "Index"},
             {"name": "file", "help": "Path to file containing rule details"},
-            {"name": "allow_ip", "help": "Allow specified IP"},
-            {"name": "deny_ip", "help": "Deny specified IP"},
-            {"name": "allow_country", "help": "Allow specified country code"},
-            {"name": "deny_country", "help": "Deny specified country code"},
-            {"name": "give_branded_response_for_ip", "help": "Set branded response for specified IP"},
-            {"name": "give_branded_response_for_country", "help": "Set branded response for specified country code"},
+            {"name": "allow-ip", "help": "Allow specified IP"},
+            {"name": "deny-ip", "help": "Deny specified IP"},
+            {"name": "allow-country", "help": "Allow specified country code"},
+            {"name": "deny-country", "help": "Deny specified country code"},
+            {"name": "ip-branded-response", "help": "Set branded response for specified IP"},
+            {"name": "country-branded-response", "help": "Set branded response for specified country code"},
         ],
         [
             {"name": "policy", "help": "Policy name"},
@@ -179,12 +179,12 @@ def cli():
             {"name": "rule", "help": "Rule name"},
             # {"name": "index", "help": "Index"},
             {"name": "file", "help": "Path to file containing rule details"},
-            {"name": "allow_ip", "help": "Allow specified IP"},
-            {"name": "deny_ip", "help": "Deny specified IP"},
-            {"name": "allow_country", "help": "Allow specified country code"},
-            {"name": "deny_country", "help": "Deny specified country code"},
-            {"name": "give_branded_response_for_ip", "help": "Set branded response for specified IP"},
-            {"name": "give_branded_response_for_country", "help": "Set branded response for specified country code"},
+            {"name": "allow-ip", "help": "Allow specified IP"},
+            {"name": "deny-ip", "help": "Deny specified IP"},
+            {"name": "allow-country", "help": "Allow specified country code"},
+            {"name": "deny-country", "help": "Deny specified country code"},
+            {"name": "ip-branded-response", "help": "Set branded response for specified IP"},
+            {"name": "country-branded-response", "help": "Set branded response for specified country code"},
             {"name": "disable", "help": "Disable rule", "action": "store_true"},
             {"name": "enable", "help": "Enable rule", "action": "store_true"},
         ],
@@ -355,7 +355,7 @@ def confirm_setup(args):
     return
 
 
-def download(args):
+def retrieve(args):
     policy = args.policy
     version = args.version
     output_file = args.output_file
@@ -420,7 +420,7 @@ def create_version(args):
         with open(file) as fd:
             policy_rules = json.load(fd)
             if not 'policyId' in policy_rules:
-                root_logger.error('File "' + file + '" doesn\'t contain proper policy details. Please download the policy file by using "download" command.\n')
+                root_logger.error('File "' + file + '" doesn\'t contain proper policy details. Please download the policy file by using "retrieve" command.\n')
                 return 1
 
             root_logger.error('Using policy details from: ' + file + '\n')
@@ -536,12 +536,12 @@ def add_rule(args):
     rule_name = args.rule
     version = args.version
     index = args.index
-    ip_allowed = args.allow_ip
-    ip_denied = args.deny_ip
-    country_allowed = args.allow_country
-    country_denied = args.deny_country
-    branded_ip_denied = args.give_branded_response_for_ip
-    branded_country_denied = args.give_branded_response_for_country
+    ip_allowed = args.allow-ip
+    ip_denied = args.deny-ip
+    country_allowed = args.allow-country
+    country_denied = args.deny-country
+    branded_ip_denied = args.ip-branded-response
+    branded_country_denied = args.country-branded-response
 
     # @todo check if file || ip_allowed || ip_denied but not both!!!
 
@@ -636,12 +636,12 @@ def modify_rule(args):
     rule_file = args.file
     rule_name = args.rule
     # index = args.index
-    ip_allowed = args.allow_ip
-    ip_denied = args.deny_ip
-    country_allowed = args.allow_country
-    country_denied = args.deny_country
-    branded_ip_denied = args.give_branded_response_for_ip
-    branded_country_denied = args.give_branded_response_for_country
+    ip_allowed = args.allow-ip
+    ip_denied = args.deny-ip
+    country_allowed = args.allow-country
+    country_denied = args.deny-country
+    branded_ip_denied = args.ip-branded-response
+    branded_country_denied = args.country-branded-response
 
     if args.disable:
         rule_disabled = True
